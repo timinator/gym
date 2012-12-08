@@ -8,31 +8,41 @@
   <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div class='row'>
-  <div class='ten columns end'>
-  	<header>
+
+  	<header style='background:yellow;'>
       <ul>
         <li class="active"><%= link_to 'home', root_path %></li>
         <li><%= link_to 'About Us', about_path %></li>
         <li><%= link_to 'Login', login_path %></li>
         <li><%= link_to 'Logout', logout_path %></li>
         <li><%= link_to 'Create User', new_user_path %></li>
-
       </ul>
   	</header>
+
+<ul class="nav-bar">
+  <li><a href="#">Nav Item 1</a></li>
+  <li class="has-flyout">
+    <a href="#">Nav Item 2</a>
+    <a href="#" class="flyout-toggle"></a>
+    <ul class="flyout">
+      <li><a href="#">Sub Nav Item 1</a></li>
+      <li><a href="#">Sub Nav Item 2</a></li>
+      <li><a href="#">Sub Nav class="support tag"></a></li>
+    </ul>
+  </li>
+</ul>
+
+<div class='row'>
+  <div class='three columns h' style='background: white;'>
+    <%= render 'shared/subnav' %>
   </div>
-</div>
-	<div id = "main">
-    <nav>
+  <div class='nine columns h' style='background: #aaa;'>
+  	<%= yield %>
+  </div>
+</div><!-- row -->
 
-    </nav>
-		<%= yield %>
-	</div>
-
-</div>
-
-	<footer>
-	</footer>
+<footer style='background:green;'>
+</footer>
 
 </body>
 </html>

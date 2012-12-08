@@ -1,0 +1,5 @@
+$('#news_feed').empty();
+
+<% @checkins.each do |x| %>
+  $('#news_feed').prepend('<%= x.to_s %><br>');
+<% end %>

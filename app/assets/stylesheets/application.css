@@ -1,5 +1,6 @@
 /*
  *= require_self
+ *= require 'reset.css'
  *= require foundation_and_overrides
  *= require 'layout.css.scss'
  */
