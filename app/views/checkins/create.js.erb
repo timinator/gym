@@ -1,5 +1,8 @@
 $('#news_feed').empty();
+$('#checkin_count').empty();
 
 <% @checkins.each do |x| %>
   $('#news_feed').prepend('<%= x.to_s %><br>');
 <% end %>
+
+$('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
