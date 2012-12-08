@@ -28,7 +28,8 @@ class UsersController < ApplicationController
 
 	def update
 	end
-
+	def advance
+	end
 end
 
 

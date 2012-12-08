@@ -1,0 +1,12 @@
+<h1>find a workout body:</h1>
+<%= content_for :match do %>
+  <%= form_tag '/match', :remote => true do %>
+    <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
+    <%= submit_tag 'filter' %>
+  <% end %>
+<% end %>
+
+
+<% @users.each do |t| %>
+  <%= t.email %>
+<% end %>

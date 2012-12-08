@@ -10,7 +10,7 @@
 <body>
 
   	<header style='background:yellow;'>
-      <ul>
+      <ul class='nav-bar'>
         <li class="active"><%= link_to 'home', root_path %></li>
         <li><%= link_to 'About Us', about_path %></li>
         <li><%= link_to 'Login', login_path %></li>
@@ -19,22 +19,10 @@
       </ul>
   	</header>
 
-<ul class="nav-bar">
-  <li><a href="#">Nav Item 1</a></li>
-  <li class="has-flyout">
-    <a href="#">Nav Item 2</a>
-    <a href="#" class="flyout-toggle"></a>
-    <ul class="flyout">
-      <li><a href="#">Sub Nav Item 1</a></li>
-      <li><a href="#">Sub Nav Item 2</a></li>
-      <li><a href="#">Sub Nav class="support tag"></a></li>
-    </ul>
-  </li>
-</ul>
-
 <div class='row'>
   <div class='three columns h' style='background: white;'>
-    <%= render 'shared/subnav' %>
+    <%= render 'shared/subnav' if session[:user_id] %>
+    <%= yield :match %>
   </div>
   <div class='nine columns h' style='background: #aaa;'>
   	<%= yield %>

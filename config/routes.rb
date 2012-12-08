@@ -5,8 +5,11 @@ FreshBuilt::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root :to => 'home#index'
-  resources :users
+  resources :users do
+    get 'advance'
+  end
   resources :companies
+
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'
@@ -15,6 +18,8 @@ FreshBuilt::Application.routes.draw do
   get '/company_list' => 'home#company_list'
   get '/checkin' => 'checkins#index'
   post '/checkin' => 'checkins#create'
+  get '/match' => 'match#index'
+  post '/match' => 'match#filter'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
