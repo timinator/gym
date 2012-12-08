@@ -8,20 +8,23 @@
   <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<div class='row'>
+  <div class='ten columns end'>
+  	<header>
+      <ul>
+        <li class="active"><%= link_to 'home', root_path %></li>
+        <li><%= link_to 'About Us', about_path %></li>
+        <li><%= link_to 'Login', login_path %></li>
+        <li><%= link_to 'Logout', logout_path %></li>
+        <li><%= link_to 'Create User', new_user_path %></li>
 
-	<header>
-    <ul>
-      <li class="active"><%= link_to 'home', root_path %></li>
-      <li><%= link_to 'About Us', about_path %></li>
-      <li><%= link_to 'Login', login_path %></li>
-      <li><%= link_to 'Create User', new_user_path %></li>
-      
-    </ul>
-	</header>
-
+      </ul>
+  	</header>
+  </div>
+</div>
 	<div id = "main">
     <nav>
-      
+
     </nav>
 		<%= yield %>
 	</div>
