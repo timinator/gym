@@ -1,10 +1,12 @@
+
 <ul>
   <li><%= link_to "My Profile", user_path(@authenticated_user) %></li>
   <li><%= link_to "Messages" %></li>
-  <li><%= link_to 'check-in', checkin_path %></li>
-  <li><%= link_to 'workout buddies', match_path %></li>
+  <li><%= link_to 'Check-In', checkin_path %></li>
+  <li><%= link_to 'Workout Buddies', match_path %></li>
   <li><%= link_to 'Workout Calendar', calendar_path %></li>
-  <li><%= link_to 'track workout' %></li>
-  <li><%= link_to 'photos', user_photos_path(@authenticated_user) %></li>
-  <li><%= link_to 'news' %></li>
+  <li><%= link_to 'Track Workout' %></li>
+  <li><%= link_to 'Photos', user_photos_path(@authenticated_user) %></li>
+  <li><%= link_to 'News' %></li>
 </ul>
+

@@ -1,14 +1,20 @@
 <%= form_tag '/checkin', :remote => true do %>
 <div id="time"></time>
-I want to check in:<br>
-time:
+   I want to check in:<br>
+ <div class="three columns">
+ </br>
+TIME:
 <%= select_tag 'time', options_for_select(1..12) %>
+</br>
 <%= radio_button_tag :ampm, 'am' %> AM
+</br>
 <%= radio_button_tag :ampm, 'pm' %> PM
+
 <br>
-goal:
+GOAL:
 <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
 <%= submit_tag 'update' %>
+</div>
 <% end %>
 
 
