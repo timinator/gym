@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :workout_goal %><br />
-    <%= select_tag "workout_goal", options_for_select([ "cardio", "weights", "toning" ], "cardio") %>
+    <%= f.select :workout_goal, options_for_select([ "cardio", "weights", "toning" ], "cardio") %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
