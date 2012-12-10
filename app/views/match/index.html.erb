@@ -1,9 +1,13 @@
 <h1>find a workout buddy:</h1>
 
+<!-- search for buddies -->
 <%= form_tag '/match/search', :id => 'searchform', :remote => true do %>
   <%= text_field_tag 'query' %>
+  <%= submit_tag 'search' %>
 <% end %>
 
+
+<!-- filter buddies / submenu -->
 <%= content_for :match do %>
   <%= form_tag '/match', :remote => true do %>
     <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
@@ -11,13 +15,6 @@
   <% end %>
 <% end %>
 
-
-
-<% @users.each do |t| %>
-  <strong>Name: <%= t.email %></strong></br>
-  workout goal: <%= t.workout_goal %></br>
-  ........................................</br>
-<% end %>
-
 <div id="results">
+  <%= render :partial => 'results', :local => @users %>
 </div>
