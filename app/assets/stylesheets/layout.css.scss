@@ -1,12 +1,52 @@
+$red: #EF4130;
+$white: #f4f3f1;
+$gray: #2e2d2c;
+$hover-gray: #d7d4d3;
+
+body{
+  font-family: 'Oswald', sans-serif;
+}
+header{
+  width: 100%;
+  background-color: $gray;
+}
+#gym-bar{
+  display:block;
+  width: 100%;
+  padding-right: 15%;
+  background-color: #000;
+}
+
+#gym-bar li{
+  float: right;
+  padding: 20px;
+  display: inline-block;
+}
+
+#gym-bar li a{
+  font-weight: bold;
+  color: $white;
+  display: block;
+  background-color: bl;
+  padding: 10px;
+}
+
+#gym-bar li a:hover{
+  font-weight: bold;
+  color: #000;
+  display: block;
+  background-color: $white;
+  padding: 10px;
+}
+
+#submenu{
+}
+
 .h{
   height: 900px;
 }
 
-header{
-	height: 120px;
-  width: 100%;
 
-}
 
 footer{
   position:fixed;
@@ -14,4 +54,8 @@ footer{
   bottom:0px;
   height:55px;
   width:100%;
+}
+
+.clear{
+  clear: both;
 }
