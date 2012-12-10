@@ -9,15 +9,16 @@ class MatchController < ApplicationController
   end
 
   def index
-    # binding.pry
+
     @users = User.all
   end
   def filter
     query = params[:workout]
     if query.present?
-      @users = User.text_search(query)
+      @users = User.filter(query)
     else
       @users = User.all
     end
+    # binding.pry
   end
 end
