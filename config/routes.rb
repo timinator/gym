@@ -9,6 +9,7 @@ FreshBuilt::Application.routes.draw do
     collection do
       post 'search'
     end
+    resources :photos
   end
 
   resources :companies
