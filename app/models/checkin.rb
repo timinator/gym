@@ -16,6 +16,12 @@ class Checkin < ActiveRecord::Base
   belongs_to :user
 
   def to_s
-    "#{user.email} working out in #{time} for #{workout_type}"
+    if (time-Time.now < 3600) && (time-Time.now > 0)
+      "#{user.name} will be working out in #{((time-Time.now)/60).to_i} minutes for #{workout_type}"
+    elsif time > Time.now
+      "#{user.name} will be working out at #{(time-18000).strftime("%I:%M %P")} for #{workout_type}"
+    else
+      "#{user.name} worked out at #{(time-18000).strftime("%I:%M %P")} for #{workout_type}"
+    end
   end
 end
