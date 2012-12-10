@@ -1,0 +1,15 @@
+<script type="text/javascript">
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+      dayClick: function() {
+          events: 'https://www.google.com/calendar/feeds/k6j4jr011punucv77ftguqfe54%40group.calendar.google.com/public/basic'
+      });
+    })
+
+});
+</script>
+
+<div id='calendar'></div>

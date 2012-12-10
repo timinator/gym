@@ -2,5 +2,6 @@
  *= require_self
  *= require 'reset.css'
  *= require foundation_and_overrides
+ *= require 'fullcalendar.css'
  *= require 'layout.css.scss'
  */

@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20121208203907) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "checkins", :force => true do |t|
-    t.time     "time"
+    t.datetime "time"
     t.string   "workout_type"
     t.integer  "user_id"
     t.datetime "created_at",   :null => false

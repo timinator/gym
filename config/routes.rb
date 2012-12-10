@@ -25,6 +25,7 @@ FreshBuilt::Application.routes.draw do
   get '/match' => 'match#index'
   post '/match/filter' => 'match#filter'
   post '/match/search' => 'match#search'
+  get '/calendar' => 'calendar#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
