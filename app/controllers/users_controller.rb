@@ -21,11 +21,13 @@ class UsersController < ApplicationController
 	end
 
 	def show
+
 	end
 
 	def edit
 		user_id = params[:id]
 		@user = User.find(user_id)
+		@p = Photo.new
 	end
 
 	def update
