@@ -1,11 +1,11 @@
-<%= form_for [@user, @photo], :html => {:multipart => true} do |f| %>
+<%= form_for user_photos_path(@authenticated_user), :html => {:multipart => true} do %>
 
   <div class="field">
-    <%= f.file_field :url %>
-    <%= f.hidden_field :url_cache %>
-    <%= image_tag(@photo.url) if @photo.url? %>
+    <%= file_field_tag :photo %>
+    <%= hidden_field_tag :photo_cache %>
+    
   </div>
 
-  <div class="submit"><%= f.submit "Submit or not... I don't care" %></div>
+  <div class="submit"><%= submit_tag "Submit" %></div>
 
 <% end %>

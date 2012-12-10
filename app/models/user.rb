@@ -30,4 +30,5 @@ class User < ActiveRecord::Base
   def self.filter(query)
     self.where("workout_goal @@ :q", :q => query)
   end
+  accepts_nested_attributes_for :photos
 end

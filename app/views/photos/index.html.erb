@@ -1,1 +1,9 @@
-index.html.erb
+photo add and view
+
+<%= render 'form' %>
+
+<h1><%= @user.email %>'s Photos</h1>
+
+ <% @photos.each do |photo| %>
+        <li><%=image_tag(photo.photo.thumb)%></li>
+    <% end %>
