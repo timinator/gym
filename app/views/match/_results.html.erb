@@ -1,5 +1,10 @@
-<% @users.each do |t| %>
-  <strong>Email: <%= t.email %></strong></br>
-  workout goal: <%= t.workout_goal %></br>
-  <hr>
+<% @users.each do |user| %>
+  <strong>Name: <%= user.name %></strong></br>
+  workout goal: <%= user.workout_goal %></br>
+  <% user.photos.each do |p| %>
+    <%= image_tag p.photo.thumb %>
+  <% end %>
+ <hr>
 <% end %>
+
+

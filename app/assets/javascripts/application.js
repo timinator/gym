@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require foundation
 //= require 'fullcalendar/fullcalendar.js'
-//= require 'fullcalendar/gcal.js'

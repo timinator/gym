@@ -11,7 +11,12 @@ class MatchController < ApplicationController
   def index
 
     @users = User.all
+    @photos = Photo.all
+    
   end
+
+
+
   def filter
     query = params[:workout]
     if query.present?

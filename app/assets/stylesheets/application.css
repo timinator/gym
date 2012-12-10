@@ -4,4 +4,5 @@
  *= require foundation_and_overrides
  *= require 'fullcalendar.css'
  *= require 'layout.css.scss'
+ *= require 'photos.css.scss'
  */

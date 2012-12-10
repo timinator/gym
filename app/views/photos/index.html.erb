@@ -1,9 +1,9 @@
-photo add and view
+<h3>photo add and view</h3>
 
 <%= render 'form' %>
 
-<h1><%= @user.email %>'s Photos</h1>
+<h1><%= @user.name %>'s Photos</h1>
 
  <% @photos.each do |photo| %>
-        <li><%=image_tag(photo.photo.thumb)%></li>
+        <div class = "show_photos"><%=image_tag(photo.photo.thumb)%></div>
     <% end %>
