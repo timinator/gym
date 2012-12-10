@@ -19,14 +19,23 @@ FreshBuilt::Application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
+
   get '/about' => 'home#about'
   get '/company_list' => 'home#company_list'
+
   get '/checkin' => 'checkins#index'
   post '/checkin' => 'checkins#create'
+
   get '/match' => 'match#index'
   post '/match/filter' => 'match#filter'
   post '/match/search' => 'match#search'
+
   get '/calendar' => 'calendar#index'
+
+  get '/message' => 'messages#index'
+  post '/message' => 'messages#create'
+  get '/sent' => 'messages#sent'
+  get '/inbox' => 'messages#inbox'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

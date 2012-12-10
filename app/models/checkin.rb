@@ -3,7 +3,7 @@
 # Table name: checkins
 #
 #  id           :integer          not null, primary key
-#  time         :time
+#  time         :datetime
 #  workout_type :string(255)
 #  user_id      :integer
 #  created_at   :datetime         not null
