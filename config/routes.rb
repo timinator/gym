@@ -22,7 +22,7 @@ FreshBuilt::Application.routes.draw do
   get '/checkin' => 'checkins#index'
   post '/checkin' => 'checkins#create'
   get '/match' => 'match#index'
-  post '/match' => 'match#filter'
+  post '/match/filter' => 'match#filter'
   post '/match/search' => 'match#search'
 
   # The priority is based upon order of creation:

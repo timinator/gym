@@ -10,17 +10,19 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-
 		if @user.save
-			redirect_to company_list_path
+      session[:user_id] = @user.id
+      redirect_to edit_user_path(@user)
 		else
 			render :new
 		end
 
-		Notifications.welcome(@user.name).deliver
+		Notifications.welcome(@user.name).deliver # welcome email
 	end
 
 	def show
+		user_id = params[:id]
+		@user = User.find(user_id)
 	end
 
 	def edit

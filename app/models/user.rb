@@ -24,7 +24,9 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def self.text_search(query)
-    self.where("email @@ :q or name @@ :q", :q => query)
+    self.where("email @@ :q or name @@ :q or description @@ :q", :q => query)
   end
-
+  def self.filter(query)
+    self.where("workout_goal @@ :q", :q => query)
+  end
 end

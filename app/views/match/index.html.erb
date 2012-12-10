@@ -9,12 +9,13 @@
 
 <!-- filter buddies / submenu -->
 <%= content_for :match do %>
-  <%= form_tag '/match', :remote => true do %>
+  <%= form_tag '/match/filter', :remote => true do %>
     <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
     <%= submit_tag 'filter' %>
   <% end %>
 <% end %>
 
+<!-- results index -->
 <div id="results">
   <%= render :partial => 'results', :local => @users %>
 </div>

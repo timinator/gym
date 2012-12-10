@@ -1,0 +1,10 @@
+    <div class = "profile_info">
+        <h1> <%= @user.name %> </h1>
+        <div class="f1"><strong>Age:</strong> <%= @user.age %></div>
+        <div class="f1"><strong>Gender:</strong> <%= @user.gender %></div>
+        <div class="f1"><strong>Location:</strong></div>
+        <div class="f1"><strong>Description:</strong></div>
+        <div class="f1"> <%= @user.description %></div>
+        <br>
+        <em><%= link_to 'Edit Profile', edit_user_path if @authenticated_user == @user %></em>
+    </div>
