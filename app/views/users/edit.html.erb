@@ -7,6 +7,27 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %>
+  </div>
+    <div class="field">
+    <%= f.label :age %><br />
+    <%= f.select :age, (18..99) %>
+  </div>
+  <div class="field">
+    <%= f.label :workout_goal %><br />
+    <%= select_tag "workout_goal", options_for_select([ "cardio", "weights", "toning" ], "cardio") %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </div>

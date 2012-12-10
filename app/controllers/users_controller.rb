@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 		else
 			render :new
 		end
+
+		Notifications.welcome(@user.name).deliver
 	end
 
 	def show
@@ -27,6 +29,12 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		@user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      redirect_to root_path
+    else
+      render :edit
+    end
 	end
 	def advance
 	end

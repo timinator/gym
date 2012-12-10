@@ -6,8 +6,11 @@ FreshBuilt::Application.routes.draw do
 
   root :to => 'home#index'
   resources :users do
-    get 'advance'
+    collection do
+      post 'search'
+    end
   end
+
   resources :companies
 
 
@@ -20,6 +23,7 @@ FreshBuilt::Application.routes.draw do
   post '/checkin' => 'checkins#create'
   get '/match' => 'match#index'
   post '/match' => 'match#filter'
+  post '/match/search' => 'match#search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

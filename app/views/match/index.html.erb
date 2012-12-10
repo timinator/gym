@@ -1,4 +1,9 @@
-<h1>find a workout body:</h1>
+<h1>find a workout buddy:</h1>
+
+<%= form_tag '/match/search', :id => 'searchform', :remote => true do %>
+  <%= text_field_tag 'query' %>
+<% end %>
+
 <%= content_for :match do %>
   <%= form_tag '/match', :remote => true do %>
     <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
@@ -7,6 +12,12 @@
 <% end %>
 
 
+
 <% @users.each do |t| %>
-  <%= t.email %>
+  <strong>Name: <%= t.email %></strong></br>
+  workout goal: <%= t.workout_goal %></br>
+  ........................................</br>
 <% end %>
+
+<div id="results">
+</div>

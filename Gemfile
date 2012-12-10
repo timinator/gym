@@ -15,6 +15,7 @@ gem 'rails-footnotes'
 gem 'rmagick'
 gem 'activeadmin'
 gem "meta_search"
+gem 'aws-ses'
 
 
 # Gems used only for assets and not required

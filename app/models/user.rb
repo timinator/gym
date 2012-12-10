@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   has_many :checkins
   has_secure_password
 
+  def self.text_search(query)
+    self.where("email @@ :q or name @@ :q", :q => query)
+  end
+
 end
