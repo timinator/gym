@@ -1,14 +1,11 @@
 <h3>FIND A WORKOUT BUDDY</h3>
+<!-- search andfilter buddies / submenu -->
 
-<!-- search for buddies -->
-<%= form_tag '/match/search', :id => 'searchform', :remote => true do %>
-  <%= text_field_tag 'query' %>
-  <%= submit_tag 'search' %>
-<% end %>
-
-
-<!-- filter buddies / submenu -->
 <%= content_for :match do %>
+  <%= form_tag '/match/search', :id => 'searchform', :remote => true do %>
+    <%= text_field_tag 'query' %>
+    <%= submit_tag 'search' %>
+  <% end %>
   <%= form_tag '/match/filter', :remote => true do %>
     <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
     <%= submit_tag 'filter' %>

@@ -1,23 +1,39 @@
-<%= form_tag '/checkin', :remote => true do %>
-<div id="time"></time>
-   I want to check in:<br>
- <div class="three columns">
- </br>
-TIME:
-<%= select_tag 'time', options_for_select(1..12) %>
-</br>
-<%= radio_button_tag :ampm, 'am' %> AM
-</br>
-<%= radio_button_tag :ampm, 'pm' %> PM
+<script type="text/javascript">
+$(function(){
 
-<br>
-GOAL:
-<%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
-<%= submit_tag 'update' %>
+  $('#news_feed').empty();
+  $('#checkin_count').empty();
+  <% @checkins.each do |x| %>
+    $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div>');
+  <% end %>
+  $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
+});
+</script>
+
+<div class='row'>
+  <div class="three columns">
+    <%= form_tag '/checkin', :remote => true do %>
+    I want to check in:<br>
+    </br>
+    TIME:
+    <%= select_tag 'time', options_for_select(1..12) %>
+    </br>
+    <%= radio_button_tag :ampm, 'am' %> AM
+    </br>
+    <%= radio_button_tag :ampm, 'pm' %> PM
+    <br>
+    GOAL:
+    <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
+    <%= submit_tag 'update' %>
+    <% end %>
+
+    <div id='checkin_count'></div>
+
+  </div>
+  <div class='nine columns' style='padding-left: 30px;'>
+    <div id='news_feed'></div>
+
+  </div>
 </div>
-<% end %>
 
-
-<div id='news_feed'></div>
-
-<div id='checkin_count'></div>
+<i class="foundicon-[icon]"></i>
