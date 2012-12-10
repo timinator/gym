@@ -1,3 +1,19 @@
+<script type="text/javascript">
+$(function(){
+
+  $('#news_feed').empty();
+  $('#checkin_count').empty();
+
+  <% @checkins.each do |x| %>
+    $('#news_feed').prepend('<%= x.to_s %><br>');
+  <% end %>
+
+  $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
+
+});
+</script>
+
+
 <%= form_tag '/checkin', :remote => true do %>
 <div id="time"></time>
    I want to check in:<br>

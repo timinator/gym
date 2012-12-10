@@ -5,16 +5,23 @@ $hover-gray: #d7d4d3;
 
 body{
   font-family: 'Oswald', sans-serif;
+  background-color: $white;
 }
 header{
   width: 100%;
   background-color: $gray;
 }
+.container{
+  background-color: #fff;
+  height: 100%;
+}
+.columns{
+  padding: 0px;
+}
 #gym-bar{
-  display:block;
   width: 100%;
   padding-right: 15%;
-  background-color: #000;
+  margin-bottom: 0px;
 }
 
 #gym-bar li{
@@ -27,7 +34,7 @@ header{
   font-weight: bold;
   color: $white;
   display: block;
-  background-color: bl;
+  background-color: $gray;
   padding: 10px;
 }
 
@@ -39,26 +46,29 @@ header{
   padding: 10px;
 }
 
-#submenu{
-  padding-top: 20px;
-  padding-left: 50px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border: 1px solid black;
+#submenu li{
+  padding: 5px 0px;
+}
+#submenu li:hover{
+  color: $red;
+  background-color: $white;
+  width: 100%;
+}
+#submenu a{
+  color: $gray;
+}
+#submenu a:hover{
+  color: $red;
 }
 #content{
   padding-top: 20px;
   padding-left: 50px;
-  margin-top: 30px;
   margin-bottom: 30px;
-  border: 1px solid black;
 }
 
 .h{
-  height: 900px;
+  min-height: 500px;
 }
-
-
 
 footer{
   position:fixed;

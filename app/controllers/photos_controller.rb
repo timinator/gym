@@ -1,29 +1,21 @@
 class PhotosController < ApplicationController
 
- respond_to :html
+  respond_to :html
 
   def index
-    
-    @user = User.find(params[:user_id])
-    @photos = @user.photos
-    
+  @user = User.find(params[:user_id])
+  @photos = @user.photos
   end
 
   def new
     @photos = Photo.all
-    
   end
 
   def create
-    
     @user = User.find(params[:user_id])
     # retrieve the user
     @photo = Photo.create(:photo => params[:photo], :user_id => @user.id)
-    binding.pry
     redirect_to user_photos_path
-    
-    
-
   end
 
   def show
@@ -41,8 +33,6 @@ class PhotosController < ApplicationController
   # end
 
   def update
-
-    
   end
 
   def destroy
