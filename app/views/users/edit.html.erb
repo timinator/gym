@@ -1,5 +1,4 @@
 <h1>Editing user</h1>
-
 <%= form_for@user, :html => {:multipart => true} do |f| %>
 
   <div class="field">
@@ -8,7 +7,8 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= f.radio_button :gender, 'male' %> Male
+    <%= f.radio_button :gender, 'female' %> Female
   </div>
   <div class="field">
     <%= f.label :height %><br />
@@ -24,9 +24,8 @@
   </div>
   <div class="field">
     <%= f.label :workout_goal %><br />
-    <%= select_tag "workout_goal", options_for_select([ "cardio", "weights", "toning" ], "cardio") %>
+    <%= f.select :workout_goal, options_for_select([ "cardio", "weights", "toning" ], "cardio") %>
   </div>
-
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
@@ -39,7 +38,6 @@
     <%= f.label :gym %><br />
     <%= f.text_field :company %>
   <div class="actions">
-
     <%= f.submit %>
   </div>
 <% end %>
