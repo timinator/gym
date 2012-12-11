@@ -1,14 +1,26 @@
-<script type="text/javascript">
-$(function(){
 
-  $('#news_feed').empty();
-  $('#checkin_count').empty();
-  <% @checkins.each do |x| %>
-    $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div><%= link_to "message", "", :remote => true, :class => x.user.id %>');
-  <% end %>
-  $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
-});
-</script>
+
+<% content_for :messaging do %>
+
+  <script type="text/javascript">
+    $(function(){
+
+      $('#news_feed').empty();
+      $('#checkin_count').empty();
+      <% @checkins.each do |x| %>
+        $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div><%= form_tag do %><%= hidden_field_tag "receiver", x.user.id %><%= button_tag "message" %>
+          <% end %>');
+      <% end %>
+      $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
+
+    });
+  </script>
+
+<% end %>
+
+
+
+
 
 <div class='row'>
   <div class="three columns">
