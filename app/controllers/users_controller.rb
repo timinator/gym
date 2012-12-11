@@ -21,16 +21,15 @@ class UsersController < ApplicationController
 	end
 
 	def show
-
+		# binding.pry
 		user_id = params[:id]
 		@user = User.find(user_id)
 	end
 
 	def edit
-		binding.pry
+		
 		user_id = params[:id]
 		@user = User.find(user_id)
-		
 	end
 
 	def update

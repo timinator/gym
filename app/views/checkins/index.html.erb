@@ -1,14 +1,26 @@
-<script type="text/javascript">
-$(function(){
 
-  $('#news_feed').empty();
-  $('#checkin_count').empty();
-  <% @checkins.each do |x| %>
-    $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div>');
-  <% end %>
-  $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
-});
-</script>
+
+<% content_for :messaging do %>
+
+  <script type="text/javascript">
+    $(function(){
+
+      $('#news_feed').empty();
+      $('#checkin_count').empty();
+      <% @checkins.each do |x| %>
+        $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div><%= form_tag do %><%= hidden_field_tag "receiver", x.user.id %><%= button_tag "message" %>
+          <% end %>');
+      <% end %>
+      $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
+
+    });
+  </script>
+
+<% end %>
+
+
+
+
 
 <div class='row'>
   <div class="three columns">
@@ -27,13 +39,12 @@ $(function(){
     <%= submit_tag 'update' %>
     <% end %>
 
-    <div id='checkin_count'></div>
+    <div id='checkin_count'>
+    </div>
 
   </div>
-  <div class='nine columns' style='padding-left: 30px;'>
+  <div class='nine columns' style='pmadding-left: 30px;'>
     <div id='news_feed'></div>
 
   </div>
 </div>
-
-<i class="foundicon-[icon]"></i>

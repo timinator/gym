@@ -2,8 +2,10 @@
 <html>
 <head>
   <title>Gym Buddy</title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= yield :messaging %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 </head>
@@ -18,7 +20,6 @@
     </ul>
     <div class='clear'></div>
 	</header>
-
 
 <div class='row'>
   <div class='three columns h' id='submenu'>
