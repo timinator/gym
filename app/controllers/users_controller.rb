@@ -27,9 +27,10 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		binding.pry
 		user_id = params[:id]
 		@user = User.find(user_id)
-		@p = Photo.new
+		
 	end
 
 	def update
