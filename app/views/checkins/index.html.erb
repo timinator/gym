@@ -4,7 +4,7 @@ $(function(){
   $('#news_feed').empty();
   $('#checkin_count').empty();
   <% @checkins.each do |x| %>
-    $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div>');
+    $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div><%= link_to "message", "", :remote => true, :class => x.user.id %>');
   <% end %>
   $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
 });
@@ -27,13 +27,12 @@ $(function(){
     <%= submit_tag 'update' %>
     <% end %>
 
-    <div id='checkin_count'></div>
+    <div id='checkin_count'>
+    </div>
 
   </div>
-  <div class='nine columns' style='padding-left: 30px;'>
+  <div class='nine columns' style='pmadding-left: 30px;'>
     <div id='news_feed'></div>
 
   </div>
 </div>
-
-<i class="foundicon-[icon]"></i>

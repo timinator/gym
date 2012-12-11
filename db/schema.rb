@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20121210233737) do
   create_table "messages", :force => true do |t|
     t.integer  "s_id"
     t.integer  "r_id"
-    t.text     "message"
+    t.text     "content"
     t.boolean  "read_flag"
     t.boolean  "sms"
     t.datetime "created_at", :null => false

@@ -5,7 +5,7 @@ class	MessagesController < ApplicationController
 		@message = Message.new
 	end
 	def create
-		
+
 		m = Message.new(params[:message])
 		m[:s_id] = @authenticated_user.id
 		m[:r_id] = params[:r_id]
@@ -20,5 +20,4 @@ class	MessagesController < ApplicationController
 		@inbox = User.find(user_id).receive
 		@sentbox = User.find(user_id).sendd
 	end
-
 end

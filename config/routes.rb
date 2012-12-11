@@ -32,8 +32,8 @@ FreshBuilt::Application.routes.draw do
 
   get '/calendar' => 'calendar#index'
 
-  get '/message' => 'messages#index'
-  post '/message' => 'messages#create'
+  get '/message/:id' => 'messages#index', :as => 'messages'
+  post '/message/:id' => 'messages#create'
   get '/sent' => 'messages#sent'
   get '/inbox' => 'messages#inbox'
 
