@@ -1,4 +1,4 @@
-FreshBuilt::Application.routes.draw do
+ FreshBuilt::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
@@ -34,6 +34,7 @@ FreshBuilt::Application.routes.draw do
 
   get '/message/:id' => 'messages#index', :as => 'messages'
   post '/message/:id' => 'messages#create'
+  get '/message/new' => 'messages#new'
   get '/sent' => 'messages#sent'
   get '/inbox' => 'messages#inbox'
 

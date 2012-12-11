@@ -3,8 +3,10 @@ class	MessagesController < ApplicationController
 		user_id = params[:id]
 		@receiver = User.find(user_id)
 	end
+	def new
+		raise params.inspect
+	end
 	def create
-
 		m = Message.new(params[:message])
 
 		m[:s_id] = @authenticated_user.id
