@@ -38,6 +38,8 @@
   get '/sent' => 'messages#sent'
   get '/inbox' => 'messages#inbox'
 
+  mount Foundation::Icons::Rails::Engine => '/fi'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -95,3 +97,4 @@
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+

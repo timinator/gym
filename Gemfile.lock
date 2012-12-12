@@ -96,9 +96,9 @@ GEM
     formatador (0.2.4)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    foundation-icons-sass-rails (2.0.0)
-      railties (>= 3.1.1)
-      sass-rails (>= 3.1.1)
+    foundation-icons-rails (0.0.1.2)
+      rails (~> 3.0)
+      sass
     fssm (0.2.9)
     has_scope (0.5.1)
     hike (1.2.1)
@@ -224,7 +224,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   fog
-  foundation-icons-sass-rails
+  foundation-icons-rails
   jquery-rails
   localtunnel
   meta_search
