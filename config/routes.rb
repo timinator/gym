@@ -33,10 +33,10 @@
   get '/calendar' => 'calendar#index'
 
   get '/message' => 'messages#index'
-  post '/message/create' => 'messages#create'
   get '/message/new' => 'messages#new'
-  get '/sent' => 'messages#sent'
-  get '/inbox' => 'messages#inbox'
+  post '/message/create' => 'messages#create'
+  post '/message/reply' => 'messages#reply'
+
 
 
   # The priority is based upon order of creation:
