@@ -1,4 +1,5 @@
 <%= form_tag '/message/create', :remote => true do %>
+<% binding.pry %>
   <%= hidden_field_tag 'r_id', @rid %>
   Message:<bR><bR> <%= text_area_tag 'message' %>
   Send as SMS too: <%= check_box_tag 'sms', 'true' %>

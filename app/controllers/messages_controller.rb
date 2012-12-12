@@ -33,10 +33,10 @@ class	MessagesController < ApplicationController
 			render :new
 		end
 	end
+
 	def reply
 		@id = params[:id]
 		@rid = Message.find(params[:id]).s_id
 		@sid = User.find(@authenticated_user.id).id
-
 	end
 end

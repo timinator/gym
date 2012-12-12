@@ -88,13 +88,14 @@ ActiveRecord::Schema.define(:version => 20121210233737) do
     t.string   "password_digest"
     t.string   "description"
     t.string   "gender"
-    t.string   "height"
-    t.string   "weight"
-    t.string   "workout_goal"
-    t.string   "body_fat"
-    t.integer  "age"
+    t.float    "height"
+    t.float    "weight"
+    t.float    "workout_goal"
+    t.float    "body_fat"
+    t.date     "birthdate"
     t.string   "company"
     t.integer  "company_id"
+    t.string   "phone"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
