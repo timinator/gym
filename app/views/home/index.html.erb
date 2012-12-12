@@ -1,4 +1,24 @@
+<style type="text/css">
+#signup{
+  width: 230px;
+  margin-top: 14%;
+  margin-right: 20%;
+  float: right;
+  padding: 15px;
+  background: #2e2d2c;
+  border: 5px solid #2e2d2c;
+  color: #EF4130;
+}
+</style>
+
 <div id="signup">
-		<strong><%= link_to "Signup For Free!", new_user_path %></strong>
-	</div>
+  <h1>Don't work out alone.</h1>
+  <%= form_tag do %>
+
+    email: <%= text_field_tag 'email' %>
+    password: <%= password_field_tag 'password' %>
+    confirm password: <%= password_field_tag 'password_confirmation' %>
+    <%= submit_tag 'go' %>
+  <% end %>
+
 </div>

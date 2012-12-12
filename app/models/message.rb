@@ -5,9 +5,9 @@
 #  id         :integer          not null, primary key
 #  s_id       :integer
 #  r_id       :integer
-#  message    :text
-#  read_flag  :boolean
-#  sms        :boolean
+#  content    :text
+#  read_flag  :boolean          default(FALSE)
+#  sms        :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
