@@ -1,4 +1,12 @@
-<h1>Editing user</h1>
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker({ changeYear: true, yearRange: "1960:2000" });
+    });
+</script>
+
+
+
+<h1>Please enter in more info</h1>
 <%= form_for@user, :html => {:multipart => true} do |f| %>
   <div class="field">
     <%= f.label :name %><br />
@@ -27,8 +35,10 @@
   </div>
     <div class="field">
     <%= f.label :birthdate %><br />
-    JQUERY UI DATEPICKER
+    <%= f.text_field :birthdate, :id => "datepicker" %>
   </div>
+
+
   <div class="field">
     <%= f.label :workout_goal %><br />
     <%= f.select :workout_goal, options_for_select([ "cardio", "weights", "toning" ], "cardio") %>

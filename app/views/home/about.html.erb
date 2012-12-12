@@ -1,9 +1,13 @@
 
 <script>
     $(function() {
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({ changeYear: true, yearRange: "1960:2000" });
     });
 </script>
+
+
+
+
 
 <p>Date: <input type="text" id="datepicker" /></p>
 
