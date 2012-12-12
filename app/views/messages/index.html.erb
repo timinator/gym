@@ -1,1 +1,15 @@
-Messages Index
+<h1>Messages</h1>
+
+<% binding.pry %>
+<div id='inbox'>
+<% @user.receive.each do |msg| %>
+  <div class='message'>
+    <div class='msg_sender'>
+      <%= User.find(msg.s_id).name %>
+    </div>
+    <div class='msg_content'>
+      <%= msg.content %>
+    </div>
+  </div>
+<% end %>
+</div>

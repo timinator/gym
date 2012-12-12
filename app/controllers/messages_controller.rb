@@ -1,7 +1,6 @@
 class	MessagesController < ApplicationController
 	def index
-		# user_id = params[:id]
-
+		@user = User.find(@authenticated_user.id)
 	end
 
 	def new
@@ -9,14 +8,13 @@ class	MessagesController < ApplicationController
 	end
 
 	def create
-		m = Message.new(params[:message])
-
-		m[:s_id] = @authenticated_user.id
-		m[:r_id] = params[:r_id]
+		if params[:sms].nil?
+			params[:sms] = false
+		end
+		m = Message.new(s_id: @authenticated_user.id, r_id: params[:r_id], content: params[:message], sms: params[:sms])
 		if @authenticated_user && m.save
-			binding.pry
 		else
-			render :index
+			render :new
 		end
 	end
 	def inbox

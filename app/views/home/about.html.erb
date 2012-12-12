@@ -1,18 +1,29 @@
+<i class="general foundicon-mail"><p>mail</p></i>
 
-<%= ('a'..'z').each do |a| %>
+<h1>general</h1>
+<% ('a'..'z').each do |a| %>
+<div style='margin: 5px; padding: 5px; border: 1px solid black; float:left;'>
+<%= a %>
+<a class="glyph general" style='font-size: 20px;'><%= a %></a>
+</div>
+<% end %>
+<br>
 
-<a class="glyph general"><%= a %></a><br><br>
+<div class='clear'></div>
+<h1>social</h1>
+<% ('a'..'z').each do |a| %>
+<div style='margin: 5px; padding: 5px; border: 1px solid black; float:left;'>
+<%= a %>
+<a class="glyph social" style='font-size: 20px;'><%= a %></a>
+</div>
 <% end %>
 
-<%= ('a'..'z').each do |a| %>
+<div class='clear'></div>
 
-<a class="glyph social"><%= a %></a><br><br>
+<h1>accessibility</h1>
+<% ('a'..'z').each do |a| %>
+<div style='margin: 5px; padding: 5px; border: 1px solid black; float:left;'>
+<%= a %>
+<a class="glyph accessibility" style='font-size: 20px;'><%= a %></a>
+</div>
 <% end %>
-
-
-<%= ('a'..'z').each do |a| %>
-
-<a class="glyph accessibility"><%= a %></a><br><br>
-<% end %>
-
-
