@@ -19,6 +19,7 @@ gem "meta_search"
 gem 'aws-ses'
 gem 'foundation-icons-rails'
 gem 'twilio-ruby'
+gem 'jquery-ui-rails'
 
 
 # Gems used only for assets and not required
