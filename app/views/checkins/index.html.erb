@@ -8,7 +8,7 @@
       $('#news_feed').empty();
       $('#checkin_count').empty();
       <% @checkins.each do |x| %>
-        $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div><%= form_tag "/message/new" do %><%= hidden_field_tag "receiver", x.user.id %><%= button_tag "message" %><% end %>');
+        $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div><%= form_tag message_new_path, :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= button_tag "message" %><% end %>');
       <% end %>
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
 
