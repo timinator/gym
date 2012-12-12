@@ -1,18 +1,20 @@
 class	MessagesController < ApplicationController
 	def index
-		user_id = params[:id]
-		@receiver = User.find(user_id)
+		# user_id = params[:id]
+
 	end
+
 	def new
-		raise params.inspect
+		@receiver = User.find(params[:receiver])
 	end
+
 	def create
 		m = Message.new(params[:message])
 
 		m[:s_id] = @authenticated_user.id
 		m[:r_id] = params[:r_id]
 		if @authenticated_user && m.save
-			redirect_to user_path
+			binding.pry
 		else
 			render :index
 		end
