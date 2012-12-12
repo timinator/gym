@@ -1,5 +1,4 @@
 <h1>Messages</h1>
-
 <div id='inbox'>
   <% @user.receive.order('created_at DESC').each do |msg| %>
     <div class='message'>
