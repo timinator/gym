@@ -8,6 +8,22 @@ class	MessagesController < ApplicationController
 	end
 
 	def create
+		if params[:sms] == 'true'
+			account_sid = ENV['TW_SID']
+			auth_token = ENV['TW_TOK']
+			client = Twilio::REST::Client.new account_sid, auth_token
+
+			from = "+19177468813" # Your Twilio number
+			to = "+16469208813"
+			body = params[:message]
+
+		  client.account.sms.messages.create(
+		    :from => from,
+		    :to => to,
+		    :body => body
+		  )
+		end
+
 		if params[:sms].nil?
 			params[:sms] = false
 		end
@@ -17,9 +33,10 @@ class	MessagesController < ApplicationController
 			render :new
 		end
 	end
-	def inbox
-		user_id = params[:id]
-		@inbox = User.find(user_id).receive
-		@sentbox = User.find(user_id).sendd
+	def reply
+		@id = params[:id]
+		@rid = Message.find(params[:id]).s_id
+		@sid = User.find(@authenticated_user.id).id
+
 	end
 end
