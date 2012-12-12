@@ -13,8 +13,8 @@ class	MessagesController < ApplicationController
 			auth_token = ENV['TW_TOK']
 			client = Twilio::REST::Client.new account_sid, auth_token
 
-			from = "+19177468813" # Your Twilio number
-			to = "+16469208813"
+			from = ENV['TW_NUM'] # Your Twilio number
+			to = User.find(params[:r_id]).phone
 			body = params[:message]
 
 		  client.account.sms.messages.create(
