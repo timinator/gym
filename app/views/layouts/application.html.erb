@@ -19,15 +19,15 @@
     <div class='clear'></div>
 	</header>
 
-  <div class='row' style='border: 1px solid black; margin-top: 30px;'>
-      <div class='two columns h' id='submenu'>
+  <div class='row h' style='border: 1px solid black; margin-top: 30px; background: #2e2d2c;'>
+      <div class='two columns' id='submenu'>
         <%= render 'shared/subnav' if session[:user_id] %>
         <%= yield :match %>
       </div>
       <div class='eight columns h', id="content">
         <%= yield %>
       </div>
-      <div class='two columns h', id ="leader_board">
+      <div class='two columns', id ="leader_board">
         <%= render 'shared/leaderboard' if session[:user_id] %>
       </div>
       <div class='clear'></div>
