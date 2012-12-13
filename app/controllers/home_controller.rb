@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-     render :layout => 'home'
+    @user = User.new
+    render :layout => 'home'
   end
   def about
 

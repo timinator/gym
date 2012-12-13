@@ -1,66 +1,90 @@
+<%= content_for :background do %>
+<script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.3/jquery.backstretch.min.js'></script>
+<script type="text/javascript">$.backstretch('<%= image_path("kids.jpg") %>');</script>
+<% end %>
 <script>
     $(function() {
         $( "#datepicker" ).datepicker({ changeYear: true, yearRange: "1960:2000" });
     });
+
+$(function(){
+  $('.image').hide();
+  $('input#user_name').focus();
+  $('input#user_phone').focus(show_bubble);
+})
+function show_bubble () {
+  var val = $('input#user_name').val().toUpperCase();
+  $('.text').empty();
+  $('.image').fadeIn(3000);
+  $('.text').append("HELLO, " + val +" IS HERE!");
+}
 </script>
+<style type="text/css">
+#edit{
+  width: 600px;
+  margin-top: 30px;
+  float: right;
+  padding: 15px;
+  background: #2e2d2c;
+  color: #4ca2b2;
+  line-height: 25px;
+  opacity: .95;
+}
+.edit{
+  float: left;
+  margin: 2.5%;
+  width: 45%;
+}
+h1{
+  font-family: 'Oswald', sans-serif;
+  color: #f4f3f1;
+}
 
+.image {
+  margin-top: 10px;
+  width: 170px;
+  margin-left: 190px;
+  position:relative;
+  float:left; /* optional */
+  opacity: .55;
 
+}
+.image .text {
+  text-align: center;
+  position:absolute;
+  top:25px; /* in conjunction with left property, decides the text position */
+  left:30px;
+  width:100px; /* optional, though better have one */
+  line-height: 20px;
+}
+</style>
 
-<h1>Please enter in more info</h1>
-<%= form_for@user, :html => {:multipart => true} do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.radio_button :gender, 'male' %> Male
-    <%= f.radio_button :gender, 'female' %> Female
-  </div>
-  <div class="field">
-    <%= f.label :height %><br />
-    <%= f.text_field :height %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %><br />
-    <%= f.text_field :weight %>
-  </div>
-    <div class="field">
-    <%= f.label :birthdate %><br />
-    <%= f.text_field :birthdate, :id => "datepicker" %>
-  </div>
+<div class='image'>
+<%= image_tag 'speech-bubble.gif' %>
+<div class='text'></div>
+</div>
 
-
-  <div class="field">
-    <%= f.label :workout_goal %><br />
-    <%= f.select :workout_goal, options_for_select([ "cardio", "weights", "toning" ], "cardio") %>
+<div id='edit'>
+  <h1>SHARE INFORMATION WITH YOUR NEW FRIENDS</h1>
+  <div id='edit_left' class='edit'>
+    <%= form_for@user, :html => {:multipart => true} do |f| %>
+      NAME
+      <%= f.text_field :name %>
+      PHONE
+      <%= f.text_field :phone %>
+      GENDER
+      <%= f.radio_button :gender, 'male' %> Male
+      <%= f.radio_button :gender, 'female' %> Female
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+  <div id='edit-right' class='edit'>
+      BIRTHDATE
+      <%= f.text_field :birthdate, :id => "datepicker" %>
+      GYM
+      <%= f.text_field :company %>
+      WORKOUT GOAL
+      <%= f.select :workout_goal, options_for_select([ "CARDIO", "WEIGHTS", "TONING" ]), :style => 'height: 90apx; ' %>
+      <%= f.submit 'SHARE', :class => 'medium button', :style => 'margin-top: 13px;' %>
+  <% end %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :gym %><br />
-    <%= f.text_field :company %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+</div>
+</div>

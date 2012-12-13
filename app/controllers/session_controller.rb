@@ -5,7 +5,7 @@ class SessionController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect_to users_path
+        redirect_to checkin_path
     else
       render :new
     end

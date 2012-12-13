@@ -27,9 +27,9 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		
 		user_id = params[:id]
 		@user = User.find(user_id)
+		render :layout => 'home'
 	end
 
 	def update

@@ -11,34 +11,18 @@
   </script>
 
 <% end %>
-
-
-
-
-
-<div class='row'>
-  <div class="three columns">
-    <%= form_tag '/checkin', :remote => true do %>
-    I want to check in:<br>
-    </br>
+<div id='checkin' style='background: #EF4130; padding: 5px;'>
+  <%= form_tag '/checkin', :remote => true do %>
     TIME:
-    <%= select_tag 'time', options_for_select(1..12) %>
-    </br>
+    <%= select_tag 'time', options_for_select(1..12), :style => 'width: 50px;' %>
     <%= radio_button_tag :ampm, 'am' %> AM
-    </br>
     <%= radio_button_tag :ampm, 'pm' %> PM
-    <br>
     GOAL:
-    <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
+    <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]), :style => 'width: 100px;'  %>
     <%= submit_tag 'update' %>
-    <% end %>
+  <% end %>
+</div>
+    <div id='checkin_count'></div>
 
-    <div id='checkin_count'>
-    </div>
-
-  </div>
-  <div class='nine columns' style='pmadding-left: 30px;'>
     <div id='news_feed'></div>
 
-  </div>
-</div>

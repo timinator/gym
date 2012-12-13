@@ -5,7 +5,7 @@ $hover-gray: #d7d4d3;
 
 body{
   font-family: 'Oswald', sans-serif;
-  background-color: $white;
+  background-image:url('nasty-fabric.png');
 }
 header{
   width: 100%;
@@ -45,29 +45,36 @@ header{
   background-color: $white;
   padding: 10px;
 }
-
+#submenu{
+  background-color: $gray;
+  padding-top: 20px;
+}
 #submenu li{
   padding: 5px 0px;
 }
 #submenu li:hover{
   color: $red;
-  background-color: $white;
   width: 100%;
 }
 #submenu a{
-  color: $gray;
+  color: $white;
+  padding-left: 20%;
 }
 #submenu a:hover{
   color: $red;
 }
 #content{
+  background-color: $white;
+}
+#leader_board{
+  color: $white;
+  background-color: $gray;
   padding-top: 20px;
-  padding-left: 50px;
-  margin-bottom: 30px;
 }
 
 .h{
   min-height: 500px;
+  height: 100%;
 }
 
 footer{

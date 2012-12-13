@@ -20,40 +20,52 @@ function show_sign () {
 </script>
 <style type="text/css">
 #signup{
-  width: 300px;
+  width: 261px;
   margin-top: 12%;
   margin-right: 20%;
   float: right;
   padding: 15px;
   background: #2e2d2c;
   border: 5px solid #2e2d2c;
-  color: #EF4130;
+  color: #4ca2b2;
   line-height: 25px;
-  opacity: .9;
+  opacity: .7;
 }
 h1{
   font-family: 'Oswald', sans-serif;
   color: #f4f3f1;
 }
+form{
+  margin: 0;
+}
+.a{
+  margin-left: 30px;
+}
 </style>
+
+<%= content_for :background do %>
+<script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.3/jquery.backstretch.min.js'></script>
+<script type="text/javascript">$.backstretch('<%= image_path("locker-room.jpg") %>');</script>
+<% end %>
 
 <div id="signup">
   <h1>DON'T WORK OUT ALONE.</h1>
-  <%= button_tag 'Login', :class => 'medium button' %>
-  <%= button_tag 'Signup', :class => 'medium button' %>
+  <%= button_tag 'LOGIN', :class => 'medium button a' %>
+  <%= button_tag 'SIGNUP', :class => 'medium button' %>
   <div id='login'>
     <%= form_tag login_path do %>
-      email: <%= text_field_tag 'email' %>
-      password: <%= password_field_tag 'password' %>
-      <%= submit_tag 'Login', :class => 'medium button' %>
+      EMAIL <%= text_field_tag 'email' %>
+      PASSWORD <%= password_field_tag 'password' %>
+      <%= submit_tag 'LOGIN', :class => 'medium button' %>
     <% end %>
   </div>
   <div id='sign'>
-    <%= form_tag users_path do %>
-      email: <%= text_field_tag 'email' %>
-      password: <%= password_field_tag 'password' %>
-      confirm password: <%= password_field_tag 'password_confirmation' %>
-      <%= submit_tag 'Sign up', :class => 'medium button' %>
+    <%= form_for @user, :html => {:multipart => true} do |f| %>
+      EMAIL <%= f.text_field :email %>
+      PASSWORD <%= f.password_field :password %>
+      CONFIRM <%= f.password_field :password_confirmation %>
+      GYM <%= f.text_field :company %>
+      <%= submit_tag 'SIGNUP', :class => 'medium button' %>
     <% end %>
   </div>
   <div class='clear'></div>
