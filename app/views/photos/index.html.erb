@@ -1,15 +1,39 @@
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+ 
+<script type='text/javascript'>
+   $(window).load(function() {
+       $('#featuredContent').orbit({ fluid: '16x6' });
+   });
+</script>
 
-<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<h1>My Photos</h1>
 
-<h3>photo add and view</h3>
+
 
 <%= render 'form' %>
 
-<h1><%= @user.name %>'s Photos</h1>
-
+<div id="cool">
  <% @photos.each do |photo| %>
         <div class = "show_photos"><%=image_tag(photo.photo.thumb)%></div>
     <% end %>
+</div>
+
+ 
+
+
+<div id="featuredContent">
+  <div>
+    <h4>This is a content slider.</h4>
+    <p>Each slide holds arbitrary content, like text or actions.</p>
+  </div>
+  <div>
+    <h4>We can include text and buttons, like this!</h4>
+    <p>We take no responsibility for what happens if you click this button.</p>
+    <p><a href="http://www.youtube.com/watch?v=dQw4w9WgXcQ" class="button" target="_blank">Rock My World!</a></p>
+  </div>
+  <div>
+    <h4>What? You did not click it?</h4>
+    <p>We give you the benefit of the doubt. Maybe you did, and now you are back!</p>
+  </div>
+</div>
 
  
