@@ -42,14 +42,14 @@ h1{
   <%= button_tag 'Login', :class => 'medium button' %>
   <%= button_tag 'Signup', :class => 'medium button' %>
   <div id='login'>
-    <%= form_tag do %>
+    <%= form_tag login_path do %>
       email: <%= text_field_tag 'email' %>
       password: <%= password_field_tag 'password' %>
       <%= submit_tag 'Login', :class => 'medium button' %>
     <% end %>
   </div>
   <div id='sign'>
-    <%= form_tag do %>
+    <%= form_tag users_path do %>
       email: <%= text_field_tag 'email' %>
       password: <%= password_field_tag 'password' %>
       confirm password: <%= password_field_tag 'password_confirmation' %>
