@@ -1,24 +1,59 @@
+<script type="text/javascript">
+$(function(){
+  $('#login').hide();
+  $('#sign').hide();
+  $('button:first').click(show_login);
+  $('button:eq(1)').click(show_sign);
+});
+
+function show_login () {
+  $('button:first').hide();
+  $('button:eq(1)').hide();
+  $('#login').show();
+}
+
+function show_sign () {
+  $('button:first').hide();
+  $('button:eq(1)').hide();
+  $('#sign').show();
+}
+</script>
 <style type="text/css">
 #signup{
-  width: 230px;
-  margin-top: 14%;
+  width: 300px;
+  margin-top: 12%;
   margin-right: 20%;
   float: right;
   padding: 15px;
   background: #2e2d2c;
   border: 5px solid #2e2d2c;
   color: #EF4130;
+  line-height: 25px;
+  opacity: .9;
+}
+h1{
+  font-family: 'Oswald', sans-serif;
+  color: #f4f3f1;
 }
 </style>
 
 <div id="signup">
-  <h1>Don't work out alone.</h1>
-  <%= form_tag do %>
-
-    email: <%= text_field_tag 'email' %>
-    password: <%= password_field_tag 'password' %>
-    confirm password: <%= password_field_tag 'password_confirmation' %>
-    <%= submit_tag 'go' %>
-  <% end %>
-
+  <h1>DON'T WORK OUT ALONE.</h1>
+  <%= button_tag 'Login', :class => 'medium button' %>
+  <%= button_tag 'Signup', :class => 'medium button' %>
+  <div id='login'>
+    <%= form_tag do %>
+      email: <%= text_field_tag 'email' %>
+      password: <%= password_field_tag 'password' %>
+      <%= submit_tag 'Login', :class => 'medium button' %>
+    <% end %>
+  </div>
+  <div id='sign'>
+    <%= form_tag do %>
+      email: <%= text_field_tag 'email' %>
+      password: <%= password_field_tag 'password' %>
+      confirm password: <%= password_field_tag 'password_confirmation' %>
+      <%= submit_tag 'Sign up', :class => 'medium button' %>
+    <% end %>
+  </div>
 </div>

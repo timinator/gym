@@ -15,9 +15,7 @@
     <ul id='gym-bar'>
       <li><%= link_to 'HOME', root_path %></li>
       <li><%= link_to 'ABOUT', about_path %></li>
-      <li><%= link_to 'LOGIN', login_path if session[:user_id].nil? %></li>
       <li><%= link_to "LOGOUT", logout_path if session[:user_id] %></li>
-      <li><%= link_to 'SIGNUP', new_user_path if session[:user_id].nil? %></li>
     </ul>
     <div class='clear'></div>
   </header>
