@@ -79,8 +79,10 @@ h1{
   <div id='edit-right' class='edit'>
       BIRTHDATE
       <%= f.text_field :birthdate, :id => "datepicker" %>
-      GYM
-      <%= f.text_field :company %>
+      PROFILE PIC
+      <%= f.file_field :avatar %>
+      <%= f.text_field :remote_avatar_url %>
+      <%= f.hidden_field :avatar_cache %>
       WORKOUT GOAL
       <%= f.select :workout_goal, options_for_select([ "CARDIO", "WEIGHTS", "TONING" ]), :style => 'height: 90apx; ' %>
       <%= f.submit 'SHARE', :class => 'medium button', :style => 'margin-top: 13px;' %>

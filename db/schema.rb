@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20121213232057) do
     t.date     "birthdate"
     t.string   "company"
     t.integer  "company_id"
+    t.string   "avatar"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   has_many :records
   has_secure_password
 
+  mount_uploader :avatar, PhotoUploader
+
   has_many :sendd, foreign_key: 's_id', class_name: 'Message'
   has_many :receive, foreign_key: 'r_id', class_name: 'Message'
 

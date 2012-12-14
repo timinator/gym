@@ -1,4 +1,4 @@
- 
+
 <script type='text/javascript'>
    $(window).load(function() {
        $('#featuredContent').orbit({ fluid: '16x6' });
@@ -13,11 +13,11 @@
 
 <div id="cool">
  <% @photos.each do |photo| %>
-        <div class = "show_photos"><%=image_tag(photo.photo.thumb)%></div>
+        <div class = "show_photos"><%=image_tag(photo.photo)%></div>
     <% end %>
 </div>
 
- 
+
 
 
 <div id="featuredContent">
@@ -36,4 +36,3 @@
   </div>
 </div>
 
- 
