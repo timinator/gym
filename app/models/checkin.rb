@@ -24,4 +24,5 @@ class Checkin < ActiveRecord::Base
       "#{user.name} worked out at #{(time-18000).strftime("%I:%M %P")} for #{workout_type}"
     end
   end
+
 end

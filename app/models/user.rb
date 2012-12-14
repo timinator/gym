@@ -7,12 +7,8 @@
 #  password_digest :string(255)
 #  email           :string(255)
 #  phone           :string(255)
-#  description     :string(255)
 #  gender          :string(255)
-#  height          :float
-#  weight          :float
-#  workout_goal    :float
-#  body_fat        :float
+#  workout_goal    :string(255)
 #  birthdate       :date
 #  company         :string(255)
 #  company_id      :integer
@@ -23,6 +19,7 @@
 class User < ActiveRecord::Base
   has_many :checkins
   has_many :photos
+  has_many :records
   has_secure_password
 
   has_many :sendd, foreign_key: 's_id', class_name: 'Message'
