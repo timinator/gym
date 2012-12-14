@@ -1,15 +1,14 @@
+
+
+<div id='calendar'></div>
+<%= javascript_include_tag "fullcalendar/fullcalendar.js" %>
+<%= stylesheet_link_tag    "fullcalendar", :media => "all" %>
 <script type="text/javascript">
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
-
-
     $('#calendar').fullCalendar({
           events: 'https://www.google.com/calendar/feeds/k6j4jr011punucv77ftguqfe54%40group.calendar.google.com/public/basic'
     });
-
-
 });
 </script>
-
-<div id='calendar'></div>

@@ -3,7 +3,6 @@
  *= require 'reset.css'
  *= require foundation_and_overrides
  *= require foundation-icons
- *= require 'fullcalendar.css'
  *= require jquery.ui.all
  *= require 'layout.css.scss'
  *= require 'photos.css.scss'

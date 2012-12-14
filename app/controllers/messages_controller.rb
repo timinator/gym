@@ -15,7 +15,7 @@ class	MessagesController < ApplicationController
 
 			from = ENV['TW_NUM'] # Your Twilio number
 			to = User.find(params[:r_id]).phone
-			body = params[:message]
+			body = from + ": " + params[:message]
 
 		  client.account.sms.messages.create(
 		    :from => from,
