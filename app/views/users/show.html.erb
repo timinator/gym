@@ -31,7 +31,6 @@
             <div class="f1"><strong>Email:</strong> <%= @user.email %></div>
             <div class="f1"><strong>Birthdate:</strong> <%= @user.birthdate %></div>
             <div class="f1"><strong>Gender:</strong> <%= @user.gender %></div>
-            <div class="f1"><strong>Gym:</strong> <%= @user.company %></div>
         <br>
         <em><%= link_to 'Edit Profile', edit_user_path if @authenticated_user == @user %></em>
     </div>
