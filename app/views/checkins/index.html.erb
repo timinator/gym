@@ -23,7 +23,7 @@
   <% end %>
 </div>
 
-<div style='border-bottom: 1px black dashed;'>
+<div id='record' style='border-bottom: 1px black dashed;'>
   <%= form_tag '/record', :remote => true do %>
     <span style='float:left; margin: 15px;'>WEIGHT</span>
     <%= text_field_tag 'weight', '', :style => 'width: 100px; float:left; margin: 5px;', :placeholder => 'in pounds' %>
