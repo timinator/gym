@@ -67,14 +67,33 @@ h1{
 <div id='edit'>
   <h1>SHARE INFORMATION WITH YOUR NEW FRIENDS</h1>
   <div id='edit_left' class='edit'>
-    <%= form_for@user, :html => {:multipart => true} do |f| %>
+    <%= form_for@user, :html => {:multipart => true, :class => 'custom'} do |f| %>
       NAME
       <%= f.text_field :name %>
       PHONE
       <%= f.text_field :phone %>
       GENDER
-      <%= f.radio_button :gender, 'male' %> Male
-      <%= f.radio_button :gender, 'female' %> Female
+      <span style='margin: 0 20px;'><%= f.radio_button :gender, 'male' %> Male</span>
+      <span style='margin: 0 20px;'><%= f.radio_button :gender, 'female' %> Female</span>
+      <br>
+      <div style='margin-top: 8px;'>WORKOUT GOAL</div>
+      <select style="display:none;" id="customDropdown">
+        <option SELECTED>CARDIO</option>
+        <option>WEIGHTS</option>
+        <option>TONING</option>
+      </select>
+      <div class="custom dropdown">
+        <a href="#" class="current">
+          CARDIO
+        </a>
+        <a href="#" class="selector"></a>
+        <ul>
+          <li>CARDIO</li>
+          <li>WEIGHTS</li>
+          <li>TONING</li>
+        </ul>
+      </div>
+
   </div>
   <div id='edit-right' class='edit'>
       BIRTHDATE
@@ -83,10 +102,13 @@ h1{
       <%= f.file_field :avatar %>
       <%= f.text_field :remote_avatar_url %>
       <%= f.hidden_field :avatar_cache %>
-      WORKOUT GOAL
-      <%= f.select :workout_goal, options_for_select([ "CARDIO", "WEIGHTS", "TONING" ]), :style => 'height: 90apx; ' %>
-      <%= f.submit 'SHARE', :class => 'medium button', :style => 'margin-top: 13px;' %>
+
+
+
+  <%= f.submit 'go', :class => 'medium button' %>
+
   <% end %>
+
   </div>
 </div>
 </div>
