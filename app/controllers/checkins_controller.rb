@@ -22,7 +22,6 @@ class CheckinsController < ApplicationController
   end
 
   def stats
-    @records = Record.where(:user_id => @authenticated_user.id)
   end
 
   def update

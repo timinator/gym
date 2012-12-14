@@ -1,9 +1,10 @@
 <div id='message_status'></div>
-<br><br>
+<div id='message_form' stlye='margin: 20px; padding: 20px;'>
 <%= form_tag '/message/create', :remote => true do %>
   To: <%= @receiver.name %><bR><bR>
   <%= hidden_field_tag 'r_id', @receiver.id %>
-  Message:<bR><bR> <%= text_area_tag 'message' %>
+  Message:<bR><bR><%= text_area_tag 'message' %>
   Send as SMS too: <%= check_box_tag 'sms', 'true' %>
   <%= submit_tag 'send' %>
 <% end %>
+</div>
