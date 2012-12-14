@@ -2,22 +2,42 @@
 
   #checkin_count{
     font-size: 20px;
-    margin-top: 15px;
+    margin-top: 30px;
     text-align: center;
 
   }
 
   #news_feed{
-    margin-top: 20px;
-    background-color: red;
-    border: 1px solid black;
+    margin-top: 40px;
     padding-left: 30px;
+    margin-left: 70px;
+
 
   }
 
+  .avatar{
+    border: 2px solid green;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .a{
+    margin-right: 100px;
+    float: right;
+
+  }
+
+  .form_feed{
+    padding-top: 10px;
+  }
+
+
+
   .feed{
-    background-color: yellow;
     padding-bottom: 10px;
+  /*  background-color: red;
+    border: 1px solid black;*/
+
   }
 </style>
 
@@ -27,7 +47,7 @@
       $('#news_feed').empty();
       $('#checkin_count').empty();
       <% @checkins.each do |x| %>
-        $('#news_feed').prepend('<div class="feed"><%= image_tag(x.user.avatar.mini) %><%= x.to_s %></div><%= form_tag message_new_path, :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= button_tag 'message' %><% end %>');
+        $('#news_feed').prepend('<div class="feed"><%= image_tag(x.user.avatar.mini, :class => "avatar") %><%= form_tag message_new_path,:class => 'form_feed', :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= x.to_s %><%= button_tag 'message', :class => 'small button a' %><% end %></div>');
       <% end %>
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
     });
