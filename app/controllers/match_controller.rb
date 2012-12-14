@@ -23,6 +23,6 @@ class MatchController < ApplicationController
     else
       @users = User.all.page
     end
-    binding.pry
+
   end
 end
