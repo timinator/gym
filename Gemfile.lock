@@ -242,6 +242,7 @@ DEPENDENCIES
   foundation-icons-rails
   jquery-rails
   jquery-ui-rails
+  kaminari
   localtunnel
   meta_search
   pg

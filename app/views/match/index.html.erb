@@ -13,6 +13,8 @@
 <% end %>
 
 <!-- results index -->
-<div id="results">
-  <%= render :partial => 'results', :local => @users %>
+<div id="results" style="padding:20px;">
+  <%= render :partial => 'results', :collection => @users %>
 </div>
+
+<%= paginate @users %>

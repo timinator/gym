@@ -9,10 +9,9 @@ class MatchController < ApplicationController
   end
 
   def index
-
-    @users = User.all
+    @users = User.order(:name).page params[:page]
     @photos = Photo.all
-    
+
   end
 
 
@@ -20,10 +19,10 @@ class MatchController < ApplicationController
   def filter
     query = params[:workout]
     if query.present?
-      @users = User.filter(query)
+      @users = User.filter(query).page
     else
-      @users = User.all
+      @users = User.all.page
     end
-    # binding.pry
+    binding.pry
   end
 end

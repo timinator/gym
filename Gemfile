@@ -14,6 +14,7 @@ gem 'aws-ses'
 gem 'foundation-icons-rails'
 gem 'twilio-ruby'
 gem 'jquery-ui-rails'
+gem 'kaminari'
 
 group :development do
   gem 'annotate'
