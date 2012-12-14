@@ -7,24 +7,56 @@
         <style type="text/css">
 
             #featuredContent{
-                margin-top: 50px;
+
+                opacity: 0.7;
             }
 
             .profile_info{
-                padding: 30px;
+                margin-top: 40px;
+                margin-left: 120px;
                 padding-left: 50px;
-                border: 1px solid black;
+                /*border: 1px solid black;*/
                 float: left;
             }
 
             .profile_photo{
-                border: 1px solid black;
+                margin-top: 40px;
+                margin-right: 120px;
+                /*border: 1px solid black;*/
                 display: inline-block;
                 float: right;
                 width: 200px;
             }
+            .profile_photo img{
+                border-radius: 100px;
+            }
+
+
+            .photo_slider{
+                  /*width:300px;*/
+                  height: 250px;
+                 /* margin-left: 180px;
+                  margin-top: 75px;*/
+                  /*border: 1px solid black;*/
+                }
+
+            .p{
+              display: block;
+              float: left;
+              /*margin-left: 75px;*/
+            }
 
         </style>
+
+<div class="photo_slider" >
+    <div id="featuredContent">
+      <% @photos.each do |photo| %>
+            <div class = "p"><%=image_tag(photo.photo.big)%></div>
+        <% end %>
+    </div>
+</div>
+
+ <div class = "clear"></div>
 
         <div class = "profile_info">
             <h1> <em><%= @user.name %> </em></h1>
@@ -41,8 +73,3 @@
     <div class = "clear"></div>
 
 
-<div id="featuredContent">
-  <% @photos.each do |photo| %>
-        <div class = "p"><%=image_tag(photo.photo.thumb)%></div>
-    <% end %>
-</div>

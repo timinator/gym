@@ -1,12 +1,23 @@
+
+<style type="text/css">
+
+.remote_photo{
+  width: 250px;
+  margin-top: 10px;
+}
+
+</style>
+
+
 <%= form_for user_photos_path(@authenticated_user), :html => {:multipart => true} do %>
 
   <div class="field">
-    <%= file_field_tag :photo%>
+    <%= file_field_tag :photo %>
     <%= text_field_tag :remote_photo %>
     <%= hidden_field_tag :photo_cache %>
-    
+
   </div>
 
-  <div class="submit"><%= submit_tag "Submit" %></div>
+  <div class="submit"><%= submit_tag "Submit" , :class => 'small button a'%></div>
 
 <% end %>

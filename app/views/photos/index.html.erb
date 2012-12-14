@@ -5,34 +5,36 @@
    });
 </script>
 
-<h1>My Photos</h1>
+<style type="text/css">
+
+    #photo_content{
+      margin-left: 30px;
+    }
+    .show_photos{
+      display: block;
+      float: left;
+      margin-left: 75px;
+    }
+
+    .photo_slider{
+      width:300px;
+      height: 160px;
+      margin-left: 180px;
+      margin-top: 75px;
+      /*border: 1px solid black;*/
+    }
 
 
-
-<%= render 'form' %>
-
-<div id="cool">
- <% @photos.each do |photo| %>
-        <div class = "show_photos"><%=image_tag(photo.photo)%></div>
-    <% end %>
+</style>
+<div id ="photo_content">
+  <h1>My Photos</h1>
+  <%= render 'form' %>
 </div>
 
-
-
-
-<div id="featuredContent">
-  <div>
-    <h4>This is a content slider.</h4>
-    <p>Each slide holds arbitrary content, like text or actions.</p>
+  <div class="photo_slider" >
+    <div id="featuredContent">
+      <% @photos.each do |photo| %>
+            <div class = "show_photos"><%=image_tag(photo.photo.thumb)%></div>
+        <% end %>
+    </div>
   </div>
-  <div>
-    <h4>We can include text and buttons, like this!</h4>
-    <p>We take no responsibility for what happens if you click this button.</p>
-    <p><a href="http://www.youtube.com/watch?v=dQw4w9WgXcQ" class="button" target="_blank">Rock My World!</a></p>
-  </div>
-  <div>
-    <h4>What? You did not click it?</h4>
-    <p>We give you the benefit of the doubt. Maybe you did, and now you are back!</p>
-  </div>
-</div>
-

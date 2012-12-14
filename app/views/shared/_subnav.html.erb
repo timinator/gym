@@ -1,10 +1,12 @@
 <ul>
-  <li><%= link_to "My Profile", user_path(@authenticated_user) %></li>
-  <li><%= link_to 'Check-In', checkin_path %></li>
-  <li><%= link_to 'Stats', stats_path %></li>
-  <li><%= link_to "Messages #{User.find(@authenticated_user.id).receive.where(read_flag: false).count}", message_path %></li>
-  <li><%= link_to 'Workout Buddies', match_path %></li>
-  <li><%= link_to 'Workout Calendar', calendar_path %></li>
-  <li><%= link_to 'Photos', user_photos_path(@authenticated_user) %></li>
+  <li><a class="glyph general" style='font-size: 20px;'>A </a><%= link_to "My Profile", user_path(@authenticated_user) %></li>
+  <li><a class="glyph general" style='font-size: 20px;'>f </a><%= link_to 'Check-In', checkin_path %></li>
+  <li><a class="glyph general" style='font-size: 20px;'>c </a><%= link_to 'Stats', stats_path %></li>
+  <li><a class="glyph general" style='font-size: 20px;'>h </a><%= link_to "Messages #{User.find(@authenticated_user.id).receive.where(read_flag: false).count}", message_path %></li>
+  <li><a class="glyph general" style='font-size: 20px;'>o </a><%= link_to 'Workout Buddies', match_path %></li>
+  <li><a class="glyph general" style='font-size: 20px;'>i </a><%= link_to 'Workout Calendar', calendar_path %></li>
+  <li><a class="glyph social" style='font-size: 20px;'>t </a><%= link_to 'Photos', user_photos_path(@authenticated_user) %></li>
 </ul>
+
+<!-- <a class="glyph general" style='font-size: 20px;'> -->
 
