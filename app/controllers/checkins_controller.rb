@@ -10,6 +10,5 @@ class CheckinsController < ApplicationController
     Checkin.create(:time => t, :workout_type => w, :user_id => session[:user_id])
     @checkins = Checkin.last(10)
     @count = Checkin.where(:user_id => session[:user_id]).count
-    # binding.pry
   end
 end

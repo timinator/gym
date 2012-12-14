@@ -11,17 +11,32 @@
   </script>
 
 <% end %>
-<div id='checkin' style='background: #EF4130; padding: 5px;'>
+<div id='checkin' style='border-bottom: 1px black dashed; padding: 5px;'>
   <%= form_tag '/checkin', :remote => true do %>
-    TIME:
-    <%= select_tag 'time', options_for_select(1..12), :style => 'width: 50px;' %>
-    <%= radio_button_tag :ampm, 'am' %> AM
-    <%= radio_button_tag :ampm, 'pm' %> PM
-    GOAL:
-    <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]), :style => 'width: 100px;'  %>
-    <%= submit_tag 'update' %>
+    <span style='float:left; margin: 15px;'>TIME</span>
+    <%= select_tag 'time', options_for_select(1..12), :style => 'width: 50px; float:left; margin: 12px 5px;' %>
+    <%= radio_button_tag :ampm, 'am', :style => 'margin: 5px;' %><span style='margin: 15px;'>AM</span>
+    <%= radio_button_tag :ampm, 'pm', :style => 'margin: 5px;' %><span style='margin: 15px;'>PM</span>
+    <span style='margin: 15px;'>GOAL</span>
+    <%= select_tag 'workout', options_for_select([['WEIGHTS','WEIGHTS'],['CARDIO','CARDIO'],['TONING','TONING']]), :style => 'width: 100px; margin: 15px'  %>
+    <%= submit_tag 'CHECKIN', :class => 'small button' %>
   <% end %>
 </div>
+
+<div style='float:left'>
+  <%= form_tag '/record', :remote => true do %>
+    <span style='float:left; margin: 15px;'>WEIGHT</span>
+    <%= text_field_tag 'weight', '', :style => 'width: 100px; float:left; margin: 5px;' %>
+    <span style='float:left; margin: 15px;'>RUN</span>
+    <%= text_field_tag 'run', '5.00', :style => 'width: 100px; float:left; margin: 5px;' %>
+    <span style='float:left; margin: 15px;'>PUSH-UPS</span>
+    <%= text_field_tag 'push up','', :style => 'width: 100px; float:left; margin: 5px;' %>
+    <%= button_tag 'UPDATE', :class => 'small button' %>
+  <% end %>
+
+</div>
+<div class='clear'></div>
+
     <div id='checkin_count'></div>
 
     <div id='news_feed'></div>
