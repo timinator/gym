@@ -1,10 +1,19 @@
 <style type="text/css">
 
+  .checkin_form{
+    margin-bottom: 7px;
+    margin-left: 100px;
+  }
+
+  .c{
+    margin-left: 80px;
+    width: 70px;
+
+  }
   #checkin_count{
     font-size: 20px;
     margin-top: 30px;
     text-align: center;
-
   }
 
   #news_feed{
@@ -12,13 +21,12 @@
     padding-left: 30px;
     margin-left: 70px;
 
-
   }
 
   .avatar{
-    border: 2px solid green;
+    border: 2px solid black;
     float: left;
-    margin-right: 10px;
+    margin-right: 62px;
   }
 
   .a{
@@ -26,18 +34,24 @@
     float: right;
 
   }
+  .b{
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 70px;
+  }
 
   .form_feed{
     padding-top: 10px;
   }
 
-
-
   .feed{
     padding-bottom: 10px;
   /*  background-color: red;
     border: 1px solid black;*/
+  }
 
+  #record{
+    padding-top: 10px;
   }
 </style>
 
@@ -47,7 +61,7 @@
       $('#news_feed').empty();
       $('#checkin_count').empty();
       <% @checkins.each do |x| %>
-        $('#news_feed').prepend('<div class="feed"><%= image_tag(x.user.avatar.mini, :class => "avatar") %><%= form_tag message_new_path,:class => 'form_feed', :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= x.to_s %><%= button_tag 'message', :class => 'small button a' %><% end %></div>');
+        $('#news_feed').prepend('<div class="feed"><%= image_tag(x.user.avatar.mini, :class => "avatar") %><%= form_tag message_new_path,:class => 'form_feed', :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= x.to_s %><%= button_tag 'MSG', :class => 'small button a' %><% end %></div>');
       <% end %>
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
     });
@@ -55,14 +69,14 @@
 
 <% end %>
 <div id='checkin' style='border-bottom: 1px black dashed; padding: 8px;'>
-  <%= form_tag '/checkin', :remote => true do %>
+  <%= form_tag '/checkin', :class => 'checkin_form', :remote => true do %>
     <span style='margin: 0px 15px;'>TIME</span>
     <%= select_tag 'time', options_for_select(1..12), :style => 'width: 50px; margin-top: 12px 5px;' %>
     <%= radio_button_tag :ampm, 'am'%><span style='margin-right:5px;'>AM</span>
     <%= radio_button_tag :ampm, 'pm'%><span style='margin-right:5px;'>PM</span>
     <span style='margin: 15px;'>GOAL</span>
     <%= select_tag 'workout', options_for_select([['WEIGHTS','WEIGHTS'],['CARDIO','CARDIO'],['TONING','TONING']]), :style => 'width: 100px; margin-top: 15px'  %>
-    <%= submit_tag 'CHECKIN', :class => 'small button' %>
+    <%= submit_tag 'CHECKIN', :class => 'small button c' %>
   <% end %>
 </div>
 
@@ -74,7 +88,7 @@
     <%= text_field_tag 'run', '', :style => 'width: 100px; float:left; margin: 5px;', :placeholder => '5.0 min mile' %>
     <span style='float:left; margin: 15px;'>PUSH-UPS</span>
     <%= text_field_tag 'push up','', :style => 'width: 100px; float:left; margin: 5px;', :placeholder => '# of push ups' %>
-    <%= button_tag 'UPDATE', :class => 'small button' %>
+    <%= button_tag 'UPDATE', :class => 'small button b' %>
   <% end %>
 
 </div>
