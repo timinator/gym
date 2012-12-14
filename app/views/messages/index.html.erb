@@ -8,9 +8,11 @@
       <div class='msg_content'>
         <%= msg.content %>
       </div>
+
       <%= form_tag '/message/reply', :remote => true do %>
         <%= hidden_field_tag 'id', msg.id %>
-        <%= button_tag 'reply' %>
+        <%= button_tag 'mark as read', :class => 'medium button', :value => 'read' %>
+        <%= button_tag 'reply', :class => 'medium button' %>
       <% end %>
     </div>
     <div id='<%= msg.id %>'></div>
