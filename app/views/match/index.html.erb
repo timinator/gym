@@ -4,11 +4,25 @@
 <%= content_for :match do %>
   <%= form_tag '/match/search', :id => 'searchform', :remote => true do %>
     <%= text_field_tag 'query' %>
-    <%= submit_tag 'search' %>
+    <%= submit_tag 'SEARCH', :class => 'small button' %>
   <% end %>
-  <%= form_tag '/match/filter', :remote => true do %>
-    <%= select_tag 'workout', options_for_select([['Weights','weights'],['Cardio','cardio'],['Toning','toning']]) %>
-    <%= submit_tag 'filter' %>
+  <%= form_tag '/match/filter', :remote => true, :class => 'custom' do %>
+      <select name='workout' style="display:none;" id="customDropdown">
+        <option SELECTED>CARDIO</option>
+        <option>WEIGHTS</option>
+        <option>TONING</option>
+      </select>
+      <div class="custom dropdown">
+        <a href="#" class="current" style='width: 126px; color: black;'>
+          CARDIO
+        </a>
+        <ul>
+          <li>CARDIO</li>
+          <li>WEIGHTS</li>
+          <li>TONING</li>
+        </ul>
+      </div>
+    <%= submit_tag 'FILTER', :class => 'small button' %>
   <% end %>
 <% end %>
 

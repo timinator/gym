@@ -14,15 +14,13 @@ class MatchController < ApplicationController
 
   end
 
-
-
   def filter
     query = params[:workout]
     if query.present?
-      @users = User.filter(query).page
+      @users = User.filter(query)
     else
       @users = User.all.page
     end
-    binding.pry
+
   end
 end

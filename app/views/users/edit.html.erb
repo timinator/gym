@@ -76,11 +76,12 @@ h1{
       <span style='margin: 0 20px;'><%= f.radio_button :gender, 'male' %> Male</span>
       <span style='margin: 0 20px;'><%= f.radio_button :gender, 'female' %> Female</span>
       <br>
+
       <div style='margin-top: 8px;'>WORKOUT GOAL</div>
-      <select style="display:none;" id="customDropdown">
-        <option SELECTED>CARDIO</option>
-        <option>WEIGHTS</option>
-        <option>TONING</option>
+      <select name="user[workout_goal]" style="display:none;" id="customDropdown">
+        <option value='CARDIO' SELECTED>CARDIO</option>
+        <option value='WEIGHTS' >WEIGHTS</option>
+        <option value='TONING' >TONING</option>
       </select>
       <div class="custom dropdown">
         <a href="#" class="current">
