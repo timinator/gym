@@ -35,6 +35,14 @@ class	MessagesController < ApplicationController
 	end
 
 	def reply
+
+		a = Message.find(params[:id])
+		a.read_flag = true
+		a.save
+		if params[:button]=='read'
+			redirect_to message_path
+			# render :index
+		end
 		@id = params[:id]
 		@rid = Message.find(params[:id]).s_id
 		@sid = User.find(@authenticated_user.id).id

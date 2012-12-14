@@ -1,16 +1,18 @@
-<h1>Messages</h1>
+<h1 style='padding:20px;'>Messages</h1>
+<div id='message_status' style='width:100%; color: #f4f3f1; padding: 20px; text-align: center;'></div>
 <div id='inbox'>
   <% @user.receive.order('created_at DESC').each do |msg| %>
-    <div class='message'>
+    <div class='message' style='padding:20px; border: 1px black solid;margin: 10px;'>
       <div class='msg_sender'>
         <%= User.find(msg.s_id).name %>
       </div>
-      <div class='msg_content'>
+      <div class='msg_content' style='margin:20px;'>
         <%= msg.content %>
       </div>
       <%= form_tag '/message/reply', :remote => true do %>
         <%= hidden_field_tag 'id', msg.id %>
-        <%= button_tag 'reply' %>
+        <%= button_tag 'mark as read', :class => 'medium button', :value => 'read' %>
+        <%= button_tag 'reply', :class => 'medium button' %>
       <% end %>
     </div>
     <div id='<%= msg.id %>'></div>

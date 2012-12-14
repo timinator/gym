@@ -1,7 +1,8 @@
-<%= form_tag '/message/create', :remote => true do %>
-
+<div id='message_form' style='padding: 20px; border: 1px black solid;margin: 10px;'>
+  <%= form_tag '/message/create', :remote => true do %>
   <%= hidden_field_tag 'r_id', @rid %>
   Message:<bR><bR> <%= text_area_tag 'message' %>
   Send as SMS too: <%= check_box_tag 'sms', 'true' %>
-  <%= submit_tag 'send' %>
+  <%= submit_tag 'send', :class => 'medium button' %>
 <% end %>
+</div>
