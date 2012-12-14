@@ -1,10 +1,33 @@
+<style type="text/css">
+
+  #checkin_count{
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
+
+  }
+
+  #news_feed{
+    margin-top: 20px;
+    background-color: red;
+    border: 1px solid black;
+    padding-left: 30px;
+
+  }
+
+  .feed{
+    background-color: yellow;
+    padding-bottom: 10px;
+  }
+</style>
+
 <% content_for :messaging do %>
   <script type="text/javascript">
     $(function(){
       $('#news_feed').empty();
       $('#checkin_count').empty();
       <% @checkins.each do |x| %>
-        $('#news_feed').prepend('<div class="feed"><%= x.to_s %></div><%= form_tag message_new_path, :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= button_tag 'message' %><% end %>');
+        $('#news_feed').prepend('<div class="feed"><%= image_tag(x.user.avatar.mini) %><%= x.to_s %></div><%= form_tag message_new_path, :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= button_tag 'message' %><% end %>');
       <% end %>
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
     });
