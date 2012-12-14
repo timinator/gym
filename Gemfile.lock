@@ -51,6 +51,10 @@ GEM
       mime-types
       xml-simple
     bcrypt-ruby (3.0.1)
+    better_errors (0.2.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.7.0)
+    binding_of_caller (0.6.8)
     bourbon (2.1.2)
       sass (>= 3.2)
       thor
@@ -155,6 +159,8 @@ GEM
       slop (~> 3.3.1)
     pry-rails (0.2.2)
       pry (>= 0.9.10)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -170,8 +176,6 @@ GEM
       activesupport (= 3.2.9)
       bundler (~> 1.0)
       railties (= 3.2.9)
-    rails-footnotes (3.7.9)
-      rails (>= 3.0.0)
     railties (3.2.9)
       actionpack (= 3.2.9)
       activesupport (= 3.2.9)
@@ -229,6 +233,8 @@ DEPENDENCIES
   annotate
   aws-ses
   bcrypt-ruby
+  better_errors
+  binding_of_caller
   carrierwave
   coffee-rails (~> 3.2.1)
   compass-rails
@@ -240,8 +246,8 @@ DEPENDENCIES
   meta_search
   pg
   pry-rails
+  quiet_assets
   rails (= 3.2.9)
-  rails-footnotes
   rmagick
   sass-rails (~> 3.2.3)
   twilio-ruby
