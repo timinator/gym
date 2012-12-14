@@ -1,10 +1,28 @@
+<script type='text/javascript'>
+   $(window).load(function() {
+       $('#featuredContent').orbit({ fluid: '16x6' });
+   });
+</script>
+
+<style type="text/css">
+  .avatar{
+    border: 2px solid black;
+    margin-right: 62px;
+  }
+</style>
+
 <% @users.each do |user| %>
-  <strong>Name: <%= user.name %></strong></br>
-  workout goal: <%= user.workout_goal %></br>
-  <% user.photos.each do |p| %>
-    <%= image_tag p.photo.thumb %>
+   <%= image_tag(user.avatar.mini, :class => "avatar") %>
+    <strong><%= user.name %></strong>
+    :WORKOUT GOAL: <%= user.workout_goal %></br>
+        <% user.photos.each do |p| %>
+       <%= image_tag p.photo.thumb %>
   <% end %>
- <hr>
+
 <% end %>
+
+
+
+
 
 
