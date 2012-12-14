@@ -20,4 +20,12 @@ class CheckinsController < ApplicationController
     r.user_id = @authenticated_user.id
     r.save
   end
+
+  def stats
+    @records = Record.where(:user_id => @authenticated_user.id)
+  end
+
+  def update
+    render :json => Record.where(:user_id => @authenticated_user.id)
+  end
 end

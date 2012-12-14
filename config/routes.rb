@@ -26,6 +26,8 @@
   get '/checkin' => 'checkins#index'
   post '/checkin' => 'checkins#create'
   post '/record' => 'checkins#record'
+  get '/stats' => 'checkins#stats'
+  post '/update' => 'checkins#update'
 
   get '/match' => 'match#index'
   post '/match/filter' => 'match#filter'

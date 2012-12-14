@@ -1,0 +1,67 @@
+
+<h1>Weight over time</h1>
+<div id='weight' style=''></div>
+<h1>One mile minute over time</h1>
+<div id='run' style=''></div>
+<h1>Max pushups over time</h1>
+<div id='pushups' style=''></div>
+
+<%= javascript_include_tag "morris.min" %>
+<%= javascript_include_tag "raphael-min" %>
+
+
+<script type="text/javascript">
+$(function(){
+
+  // Morris.Bar({
+  //   element: 'pushups',
+  //   data: @records,
+  //   xkey: 'created_at',
+  //   ykeys: ['pushups'],
+  //   labels: ['minute miles']
+  // });
+
+graph();
+
+});
+
+function graph () {
+  $.ajax({
+    type: "POST",
+    url: "/update"
+  }).done(function(msg){
+
+  Morris.Line({
+    element: 'pushups',
+    data: msg,
+    xkey: 'created_at',
+    ykeys: ['pushups'],
+    labels: ['pushups']
+  });
+  Morris.Line({
+    element: 'run',
+    data: msg,
+    xkey: 'created_at',
+    ykeys: ['run'],
+    labels: ['minute-mile']
+  });
+  Morris.Line({
+    element: 'weight',
+    data: msg,
+    xkey: 'created_at',
+    ykeys: ['weight'],
+    labels: ['pounds']
+  });
+
+  })
+}
+
+
+
+
+
+
+</script>
+
+
+
