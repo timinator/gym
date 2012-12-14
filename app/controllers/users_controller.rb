@@ -21,9 +21,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		# binding.pry
+		binding.pry
 		user_id = params[:id]
 		@user = User.find(user_id)
+		@photos = @user.photos
+
 	end
 
 	def edit

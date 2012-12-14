@@ -1,16 +1,48 @@
+<script type='text/javascript'>
+   $(window).load(function() {
+       $('#featuredContent').orbit({ fluid: '16x6' });
+   });
+</script>
+
+        <style type="text/css">
+
+            #featuredContent{
+                margin-top: 50px;
+            }
+
+            .profile_info{
+                padding: 30px;
+                padding-left: 50px;
+                border: 1px solid black;
+                float: left;
+            }
+
+            .profile_photo{
+                border: 1px solid black;
+                display: inline-block;
+                float: right;
+                width: 200px;
+            }
+
+        </style>
+
         <div class = "profile_info">
-        <h1> <%= @user.name %> </h1>
-        <div class="f1"><strong>Email:</strong> <%= @user.email %></div>
-        <div class="f1"><strong>Birthdate:</strong> <%= @user.birthdate %></div>
-        <div class="f1"><strong>Gender:</strong> <%= @user.gender %></div><!--
-        <div class="f1"><strong>Height:</strong> <%= @user.height %></div>
-        <div class="f1"><strong>Weight:</strong> <%= @user.weight %></div>
-        <div class="f1"><strong>Workout Goals:</strong> <%= @user.workout_goal %></div> -->
-        <!-- <div class="f1"><strong>Body Fat:</strong> <%= @user.body_fat %></div> -->
-        <div class="f1"><strong>Gym:</strong> <%= @user.company %></div>
-        <!-- <div class="f1"><strong>Location:</strong></div>
-        <div class="f1"><strong>Description:</strong></div>
-        <div class="f1"> <%= @user.description %></div> -->
+            <h1> <em><%= @user.name %> </em></h1>
+            <div class="f1"><strong>Email:</strong> <%= @user.email %></div>
+            <div class="f1"><strong>Birthdate:</strong> <%= @user.birthdate %></div>
+            <div class="f1"><strong>Gender:</strong> <%= @user.gender %></div>
+            <div class="f1"><strong>Gym:</strong> <%= @user.company %></div>
         <br>
         <em><%= link_to 'Edit Profile', edit_user_path if @authenticated_user == @user %></em>
     </div>
+
+    <div class = "profile_photo"> <%= image_tag(@user.avatar) %></div>
+
+    <div class = "clear"></div>
+
+
+<div id="featuredContent">
+  <% @photos.each do |photo| %>
+        <div class = "p"><%=image_tag(photo.photo.thumb)%></div>
+    <% end %>
+</div>
