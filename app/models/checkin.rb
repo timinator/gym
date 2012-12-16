@@ -25,4 +25,13 @@ class Checkin < ActiveRecord::Base
     end
   end
 
+  def self.frequency
+    id = []
+    freq = Hash.new(0)
+    Checkin.select(:user_id).each {|i| id << i.user_id }
+    id.each {|x| freq[x] += 1 }
+    freq = freq.sort_by {|x,y| y }
+    freq.reverse!
+  end
+
 end

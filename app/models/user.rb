@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   has_many :receive, foreign_key: 'r_id', class_name: 'Message'
 
   def self.text_search(query)
-    self.where("email @@ :q or name @@ :q or description @@ :q", :q => query)
+    self.where("email @@ :q or name @@ :q", :q => query)
   end
   def self.filter(query)
     self.where("workout_goal @@ :q", :q => query)

@@ -10,11 +10,11 @@
     margin-right: 62px;
   }
 </style>
-
 <% @users.each do |user| %>
    <%= image_tag(user.avatar.mini, :class => "avatar") %>
     <strong><%= user.name %></strong>
-    :WORKOUT GOAL: <%= user.workout_goal %></br>
+
+    WORKOUT GOAL: <%= user.workout_goal %></br>
         <% user.photos.each do |p| %>
        <%= image_tag p.photo.thumb %>
   <% end %>
