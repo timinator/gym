@@ -13,16 +13,17 @@ span{
 <a class="glyph social" style='font-size: 20px;'>i </a>Leaderboard
 
 <div class='box'>
+  <span>Checkins</span>
+  <% Checkin.frequency[0..2].each do |x,y| %>
+    <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
+  <% end %>
+</div>
+
+<div class='box'>
   <span>Records</span>
   <% Record.frequency[0..2].each do |x,y| %>
     <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
   <% end %>
 </div>
 
-<div class='box'>
-  <span>Checkins</span>
-  <% Checkin.frequency[0..2].each do |x,y| %>
-    <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
-  <% end %>
-</div>
 

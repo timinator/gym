@@ -43,8 +43,3 @@ class UsersController < ApplicationController
 	def advance
 	end
 end
-
-
-
-
-
