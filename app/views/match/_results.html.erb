@@ -5,23 +5,39 @@
 </script>
 
 <style type="text/css">
+
   .avatar{
     border: 2px solid black;
     margin-right: 62px;
   }
   .match{
-    width: auto;
-    border: black 1px solid;
+    width: 200px;
+    margin-left: 5px;
+    display: inline-block;
+    float: left;
+    padding: 10px;
+    -webkit-filter: grayscale(100%);
+    }
+
+  .match:hover{
+    -webkit-filter: grayscale(0%);
   }
+
+  .text{
+    margin-top: 5px;
+    margin-left: 15px;
+
+  }
+
+
 </style>
 
 
 <% @users.each do |user| %>
 
 <div class='match'>
-  <div><%= image_tag(user.avatar.mini, :class => "avatar") %></div>
-  <div><%= user.name %></div>
-  <div><%= user.workout_goal %></div>
+  <div><%= image_tag(user.avatar.thumb, :class => "avatar") %></div>
+  <div class = 'text'><%= user.name %>: <%= user.workout_goal %></div>
 
   <%# user.photos.each do |p| %>
     <%#= image_tag p.photo.thumb %>

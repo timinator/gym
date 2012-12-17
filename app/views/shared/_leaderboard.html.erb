@@ -30,7 +30,7 @@
 
 <div class='box'>
 
-  <a class="glyph general lead" style='font-size: 12px;'>u  </a><span class = 'leader'>Checkins</span>
+  <a class="glyph general lead" style='font-size: 12px;'>u  </a><span class = 'leader'>Total Workouts</span>
   <% Checkin.frequency[0..2].each do |x,y| %>
     <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
   <% end %>
@@ -38,7 +38,7 @@
 
 <div class='box'>
 
- <a class="glyph general lead" style='font-size: 12px;'>u  </a> <span class = 'leader'>Records</span>
+ <a class="glyph general lead" style='font-size: 12px;'>u  </a> <span class = 'leader'>Recorded Stats</span>
   <% Record.frequency[0..2].each do |x,y| %>
     <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
   <% end %>

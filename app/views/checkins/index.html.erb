@@ -74,6 +74,16 @@
     text-align: center;
   }
 
+  #info{
+    padding-top: 10px;
+    height: 45px;
+    background-color: orange;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+    font-style: italic;
+  }
+
 </style>
 
 <% content_for :messaging do %>
@@ -87,8 +97,13 @@
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
     });
   </script>
-
 <% end %>
+
+<div id = "info">
+  <p>Input when you you will be working out and record results</p>
+</div>
+
+
 <div id='checkin' style='border-bottom: 1px black dashed; padding: 8px;'>
   <%= form_tag '/checkin', :class => 'checkin_form', :remote => true do %>
     <span style='margin: 0px 15px;'>TIME</span>
