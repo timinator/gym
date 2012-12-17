@@ -16,7 +16,6 @@ class PhotosController < ApplicationController
     # retrieve the user
 
     @photo = Photo.create(:photo => params[:photo], :user_id => @user.id)
-    binding.pry
     redirect_to user_photos_path
   end
 

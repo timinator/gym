@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 			render :new
 		end
 
-		Notifications.welcome(@user.name).deliver # welcome email
+
 	end
 
 	def show
