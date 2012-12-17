@@ -51,7 +51,7 @@ GEM
       mime-types
       xml-simple
     bcrypt-ruby (3.0.1)
-    better_errors (0.2.0)
+    better_errors (0.3.2)
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
     binding_of_caller (0.6.8)
@@ -104,6 +104,7 @@ GEM
       rails (~> 3.0)
       sass
     fssm (0.2.9)
+    google-analytics-rails (0.0.3)
     has_scope (0.5.1)
     hike (1.2.1)
     i18n (0.6.1)
@@ -240,6 +241,7 @@ DEPENDENCIES
   compass-rails
   fog
   foundation-icons-rails
+  google-analytics-rails
   jquery-rails
   jquery-ui-rails
   kaminari

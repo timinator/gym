@@ -14,7 +14,7 @@ gem 'aws-ses'
 gem 'foundation-icons-rails'
 gem 'twilio-ruby'
 gem 'jquery-ui-rails'
-gem 'zurb-foundatioxn'
+gem 'zurb-foundation'
 gem 'kaminari'
 gem 'google-analytics-rails'
 
