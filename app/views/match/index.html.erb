@@ -6,6 +6,7 @@
     <%= text_field_tag 'query' %>
     <%= submit_tag 'SEARCH', :class => 'small button' %>
   <% end %>
+
   <%= form_tag '/match/filter', :remote => true, :class => 'custom' do %>
       <select name='workout' style="display:none;" id="customDropdown">
         <option SELECTED>CARDIO</option>
@@ -24,11 +25,12 @@
       </div>
     <%= submit_tag 'FILTER', :class => 'small button' %>
   <% end %>
-<% end %>
 
+<% end %>
 <!-- results index -->
 <div id="results" style="padding:20px;">
-  <%= render :partial => 'results', :collection => @users %>
+  <%= render :partial => 'results', :collections => @users %>
 </div>
-
+<div style='text-align:center; width: 100%;'>
 <%= paginate @users %>
+</div>
