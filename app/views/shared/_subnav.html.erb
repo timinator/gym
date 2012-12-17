@@ -1,3 +1,24 @@
+
+<style type="text/css">
+
+.sprites{
+  padding-top: 50px;
+  margin-left: 10px;
+
+}
+
+.sprite_icon{
+  float: left;
+  color: white;
+  margin-left: 10px;
+
+}
+
+</style>
+
+
+
+
 <ul>
   <li><a class="glyph general" style='font-size: 20px;'>A </a><%= link_to "My Profile", user_path(@authenticated_user) %></li>
   <li><a class="glyph general" style='font-size: 20px;'>f </a><%= link_to 'Check-In', checkin_path %></li>
@@ -7,3 +28,15 @@
   <li><a class="glyph general" style='font-size: 20px;'>i </a><%= link_to 'Calendar', calendar_path %></li>
   <li><a class="glyph social" style='font-size: 20px;'>t </a><%= link_to 'Photos', user_photos_path(@authenticated_user) %></li>
 </ul>
+
+
+
+<div class= "sprites">
+  <a class="glyph social sprite_icon" style='font-size: 20px;'>d </a>
+  <a class="glyph social sprite_icon" style='font-size: 20px;'>e </a>
+  <a class="glyph social sprite_icon" style='font-size: 20px;'>c </a>
+</div>
+
+<!-- <a class="glyph general" style='font-size: 20px;'> -->
+
+

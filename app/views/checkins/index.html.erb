@@ -1,3 +1,9 @@
+<script type='text/javascript'>
+   $(window).load(function() {
+       $('#featuredContent').orbit({ fluid: '16x6' });
+   });
+</script>
+
 <style type="text/css">
 
   .checkin_form{
@@ -53,6 +59,21 @@
   #record{
     padding-top: 10px;
   }
+
+  .quotes{
+    /*border: 1px dotted black;*/
+    margin: 20px;
+    height: 100px;
+    font-style: italic;
+    }
+
+  .p{
+    margin-top: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+
 </style>
 
 <% content_for :messaging do %>
@@ -97,4 +118,21 @@
 <div id='record_update' style='width:100%;background:#EF4130;color:#f4f3f1;'></div>
 <div id='checkin_count'></div>
 <div id='news_feed'></div>
+
+<div class= 'quotes'>
+  <div id="featuredContent">
+    <% @motivations.each do |m| %>
+              <div class = "p"> "<%= m.quote %>" </div>
+          <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 

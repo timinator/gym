@@ -1,30 +1,49 @@
 
 <style type="text/css">
+
 .box{
-  margin: 10px;
+  /*margin: 10px;*/
+  margin-top: 40px;
 }
-span{
+
+.leader{
+  /*text-decoration: underline;*/
+  display:inline-block;
+  margin-bottom: 10px;
   /*padding: 10px;*/
 }
 .record{
-  /*padding: 10px;*/
+  margin: 5px;
+  margin-left: 10px;
+  font-size: 12px;
 }
+
+.lead{
+  text-decoration: none;
+  color: white;
+}
+
+
 </style>
 
-<a class="glyph social" style='font-size: 20px;'>i </a>Leaderboard
+<a class="glyph social lead" style='font-size: 20px;'>i  </a>Leaderboard
 
 <div class='box'>
-  <span>Checkins</span>
+
+  <a class="glyph general lead" style='font-size: 12px;'>u  </a><span class = 'leader'>Checkins</span>
   <% Checkin.frequency[0..2].each do |x,y| %>
     <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
   <% end %>
 </div>
 
 <div class='box'>
-  <span>Records</span>
+
+ <a class="glyph general lead" style='font-size: 12px;'>u  </a> <span class = 'leader'>Records</span>
   <% Record.frequency[0..2].each do |x,y| %>
     <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
   <% end %>
 </div>
+
+
 
 
