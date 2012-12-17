@@ -10,7 +10,7 @@ class AddUsersTable < ActiveRecord::Migration
       t.date :birthdate
       t.string :company
       t.integer :company_id
-      t.string :avatar, :default => 'assets/fallback/default.png'
+      t.string :avatar
       t.timestamps
     end
   end
