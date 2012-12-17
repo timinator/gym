@@ -1,18 +1,57 @@
+<style type="text/css">
+
+  .avatar{
+    border-radius: 100px;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+
+  }
+
+  .msg_sender{
+    border: 1px gray dotted;
+
+  }
+
+  .s_id{
+    border: 1px gray dotted;
+    float: right;
+    margin-bottom: 5px;
+  }
+
+  .msg_content{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 10px;
+
+  }
+
+  .reply{
+    margin-bottom: 0px;
+  }
+
+</style>
+
+
+
 <h1 style='padding:20px;'>Messages</h1>
+
 <div id='message_status' style='width:100%; color: #f4f3f1; padding: 20px; text-align: center;'></div>
+
 <div id='inbox'>
   <% @user.receive.order('created_at DESC').each do |msg| %>
-    <div class='message' style='padding:20px; border: 1px black solid;margin: 10px;'>
+    <div class='message' style='padding:10px; border: 1px gray dotted;margin: 10px;'>
       <div class='msg_sender'>
-        <%= User.find(msg.s_id).name %>
+        <%= image_tag(User.find(msg.s_id).avatar.mini, :class => "avatar") %>
+        <span class "s_id"> <%= User.find(msg.s_id).name %> </span>
       </div>
-      <div class='msg_content' style='margin:20px;'>
+      <div class='msg_content'>
         <%= msg.content %>
       </div>
-      <%= form_tag '/message/reply', :remote => true do %>
+      <%= form_tag '/message/reply', :class => 'reply' , :remote => true do %>
         <%= hidden_field_tag 'id', msg.id %>
-        <%= button_tag 'mark as read', :class => 'medium button', :value => 'read' %>
-        <%= button_tag 'reply', :class => 'medium button' %>
+        <%= button_tag 'mark as read', :class => 'tiny button', :value => 'read' %>
+        <%= button_tag 'reply', :class => 'tiny button' %>
       <% end %>
     </div>
     <div id='<%= msg.id %>'></div>
