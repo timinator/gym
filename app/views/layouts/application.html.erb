@@ -8,6 +8,7 @@
   <%= yield :messaging %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+  <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
 

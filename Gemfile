@@ -14,8 +14,9 @@ gem 'aws-ses'
 gem 'foundation-icons-rails'
 gem 'twilio-ruby'
 gem 'jquery-ui-rails'
-gem 'zurb-foundation'
+gem 'zurb-foundatioxn'
 gem 'kaminari'
+gem 'google-analytics-rails'
 
 group :development do
   gem 'annotate'
