@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.delete_all
-User.create(name: 'Thomas', email: 'thomas@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'weights', phone: '6469208813')
-User.create(name: 'Aaron', email: 'aaron@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'cardio', phone: '2037479716')
-User.create(name: 'Zahra', email: 'zahra@a.com', password: '1', password_confirmation: '1', gender: 'female', workout_goal: 'toning', phone: '6462094745')
-User.create(name: 'Diana', email: 'diana@a.com', password: '1', password_confirmation: '1', gender: 'female', workout_goal: 'toning', phone: '6469208813')
-User.create(name: 'Bob', email: 'bob@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'cardio', phone: '6469208813')
-User.create(name: 'Joe', email: 'joe@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'weights', phone: '6469208813')
+User.create(name: 'Thomas', email: 'thomas@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'WEIGHTS', phone: '6469208813')
+User.create(name: 'Aaron', email: 'aaron@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'CARDIO', phone: '2037479716')
+User.create(name: 'Zahra', email: 'zahra@a.com', password: '1', password_confirmation: '1', gender: 'female', workout_goal: 'TONING', phone: '6462094745')
+User.create(name: 'Diana', email: 'diana@a.com', password: '1', password_confirmation: '1', gender: 'female', workout_goal: 'TONING', phone: '6469208813')
+User.create(name: 'Bob', email: 'bob@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'CARDIO', phone: '6469208813')
+User.create(name: 'Joe', email: 'joe@a.com', password: '1', password_confirmation: '1', gender: 'male', workout_goal: 'WEIGHTS', phone: '6469208813')
 
 Record.delete_all
 # Thomas' Record

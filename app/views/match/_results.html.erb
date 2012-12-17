@@ -9,16 +9,24 @@
     border: 2px solid black;
     margin-right: 62px;
   }
+  .match{
+    width: auto;
+    border: black 1px solid;
+  }
 </style>
+
+
 <% @users.each do |user| %>
-   <%= image_tag(user.avatar.mini, :class => "avatar") %>
-    <strong><%= user.name %></strong>
 
-    WORKOUT GOAL: <%= user.workout_goal %></br>
-        <% user.photos.each do |p| %>
-       <%= image_tag p.photo.thumb %>
-  <% end %>
+<div class='match'>
+  <div><%= image_tag(user.avatar.mini, :class => "avatar") %></div>
+  <div><%= user.name %></div>
+  <div><%= user.workout_goal %></div>
 
+  <%# user.photos.each do |p| %>
+    <%#= image_tag p.photo.thumb %>
+  <%# end %>
+</div>
 <% end %>
 
 
