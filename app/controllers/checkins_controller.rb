@@ -2,6 +2,8 @@ class CheckinsController < ApplicationController
   def index
     @checkins = Checkin.last(5)
     @count = Checkin.where(:user_id => session[:user_id]).count
+    @motivations = Motivation.all
+
   end
 
   def create

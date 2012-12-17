@@ -12,7 +12,6 @@ class PhotosController < ApplicationController
   end
 
   def create
-
     @user = User.find(params[:user_id])
     # retrieve the user
 
@@ -36,6 +35,13 @@ class PhotosController < ApplicationController
   # end
 
   def update
+
+    @photo = Photo.find(params[:id])
+    if @photo.update_attributes(params[:user])
+      redirect_to photo_path(@photo)
+    else
+      render :edit
+    end
   end
 
   def destroy
