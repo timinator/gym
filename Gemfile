@@ -14,6 +14,7 @@ gem 'aws-ses'
 gem 'foundation-icons-rails'
 gem 'twilio-ruby'
 gem 'jquery-ui-rails'
+gem 'zurb-foundation'
 gem 'kaminari'
 
 group :development do
@@ -28,6 +29,5 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
-  gem 'zurb-foundation'
   gem 'uglifier', '>= 1.0.3'
 end
