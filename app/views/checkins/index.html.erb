@@ -84,6 +84,16 @@
     font-style: italic;
   }
 
+  .joyride-next-tip{
+    margin: 10px;
+    margin-bottom: 0px;
+  }
+  .joyride-content-wrapper {
+    padding: 18px 20px 14px;
+  }
+  .joyride-close-tip {
+    font-size: 12px;
+  }
 </style>
 
 <% content_for :messaging do %>
@@ -102,10 +112,12 @@
         $('#news_feed').prepend('<div class="feed"><%= image_tag(x.user.avatar.mini, :class => "avatar") %><%= form_tag message_new_path,:class => 'form_feed', :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= x.to_s %><%= button_tag 'MSG', :class => 'small button a' %><% end %></div>');
       <% end %>
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
-    });
+      $("#joy").joyride({
+        /* Options will go here */
+      });
+    })
   </script>
 <% end %>
-
 <div id="info">
   <p>(1) input when you you will be working out and (2) record your results</p>
 </div>
@@ -144,12 +156,21 @@
 <div class= 'quotes'>
   <div id="featuredContent">
     <% @motivations.each do |m| %>
-              <div class = "p"> "<%= m.quote %>" </div>
+              <div class="p"> "<%= m.quote %>" </div>
           <% end %>
   </div>
 </div>
 
-
+<ol id="joy">
+  <li data-id="checkin">Check in here to schedule a workout so people will know.</li>
+  <li data-id="record">Record your stats after your workout.</li>
+  <li data-id="news_feed" data-options="tipLocation:top;tipAnimation:fade" data-button="Second Button">Here's some people checking in.</li>
+  <li data-class="a">Message them and see if they would like to work out together.</li>
+  <li data-id="chkin">Use this link to get back to this page.</li>
+  <li data-id="stats">Use this link to track your progress.</li>
+  <li data-id="msgs">Use this link to see messages and reply to them.</li>
+  <li data-id="buds">Use this link to find some bodies to work out with.</li>
+</ol>
 
 
 
