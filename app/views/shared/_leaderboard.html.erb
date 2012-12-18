@@ -32,15 +32,15 @@
 
   <a class="glyph general lead" style='font-size: 12px;'>u  </a><span class = 'leader'>Total Workouts</span>
   <% Checkin.frequency[0..2].each do |x,y| %>
-    <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
+    <div class='record'><a class="glyph general lead" style='font-size: 12px;'>c  </a><%= User.find(x).name %>: <%= y %> times</div>
   <% end %>
 </div>
 
 <div class='box'>
 
- <a class="glyph general lead" style='font-size: 12px;'>u  </a> <span class = 'leader'>Recorded Stats</span>
+ <a class="glyph general lead" style='font-size: 12px;'>u  </a> <span class = 'leader'>Weight Loss</span>
   <% Record.frequency[0..2].each do |x,y| %>
-    <div class='record'><%= User.find(x).name %>: <%= y %> times.</div>
+    <div class='record'><a class="glyph general lead" style='font-size: 12px;'>c  </a><%= User.find(x).name %></div>
   <% end %>
 </div>
 
