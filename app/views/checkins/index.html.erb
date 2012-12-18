@@ -96,6 +96,7 @@
     color: black;
     border: 1px black solid;
     border-radius: 5px;
+
   }
   .joyride-close-tip {
     font-size: 12px;
@@ -120,9 +121,10 @@
       <% end %>
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
       $("#joy").joyride({
+          'startTimerOnClick': true,       // true/false to start timer on first click
           'cookieMonster': true,           // true/false for whether cookies are used
           'cookieName': 'JoyRide',         // choose your own cookie name
-          'cookieDomain': 'herokuapp.com',           // set to false or yoursite.com
+          'cookieDomain': 'localhost:3000',           // set to false or yoursite.com
       });
     })
   </script>
@@ -171,14 +173,14 @@
 </div>
 
 <ol id="joy">
-  <li data-id="checkin">Check in here to schedule a workout so people will know.</li>
+  <li data-id="checkin">Check in here to schedule a workout so people at your local gym will know.</li>
   <li data-id="record">Record your stats after your workout.</li>
   <li data-id="news_feed" data-options="tipLocation:top;tipAnimation:fade">Here's some people checking in.</li>
   <li data-class="a">Message them and see if they would like to work out together.</li>
   <li data-id="chkin">Use this link to get back to this page.</li>
-  <li data-id="stats">Use this link to track your progress.</li>
-  <li data-id="msgs">Use this link to see messages and reply to them.</li>
-  <li data-id="buds">Use this link to find some bodies to work out with.</li>
+  <li data-id="stats">Use this link to view your progress.</li>
+  <li data-id="msgs">Use this link to see messages and reply to buddies.</li>
+  <li data-id="buds">Use this link to find some buddies to work out with.</li>
 </ol>
 
 
