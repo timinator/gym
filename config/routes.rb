@@ -15,9 +15,7 @@
 
   resources :companies
 
-
-  get '/login' => 'session#new'
-  post '/login' => 'session#create'
+  post '/login' => 'users#login'
   get '/logout' => 'session#destroy'
 
   get '/about' => 'home#about'
