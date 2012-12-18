@@ -36,8 +36,8 @@
 <% @users.each do |user| %>
 
 <div class='match'>
-  <div><%= image_tag(user.avatar.thumb, :class => "avatar") %></div>
-  <div class = 'text'><%= user.name %>: <%= user.workout_goal %></div>
+  <div><%= link_to image_tag(user.avatar.thumb, :class => "avatar"), user %></div>
+  <div class = 'text'><%= link_to user.name, user %> | <%= user.workout_goal %></div>
 
   <%# user.photos.each do |p| %>
     <%#= image_tag p.photo.thumb %>
