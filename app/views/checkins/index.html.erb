@@ -115,12 +115,13 @@
       $('#news_feed').empty();
       $('#checkin_count').empty();
       <% @checkins.each do |x| %>
-
         $('#news_feed').prepend('<div class="feed"><%= image_tag(x.user.avatar.mini, :class => "avatar") %><%= form_tag message_new_path,:class => 'form_feed', :method => :get do %><%= hidden_field_tag "receiver", x.user.id %><%= x.to_s %><%= button_tag 'MSG', :class => 'small button a' %><% end %></div>');
       <% end %>
       $('#checkin_count').prepend('you checked in <%= @count %> times, congrats!');
       $("#joy").joyride({
-        /* Options will go here */
+          'cookieMonster': true,           // true/false for whether cookies are used
+          'cookieName': 'JoyRide',         // choose your own cookie name
+          'cookieDomain': 'herokuapp.com',           // set to false or yoursite.com
       });
     })
   </script>
@@ -171,7 +172,7 @@
 <ol id="joy">
   <li data-id="checkin">Check in here to schedule a workout so people will know.</li>
   <li data-id="record">Record your stats after your workout.</li>
-  <li data-id="news_feed" data-options="tipLocation:top;tipAnimation:fade" data-button="Second Button">Here's some people checking in.</li>
+  <li data-id="news_feed" data-options="tipLocation:top;tipAnimation:fade">Here's some people checking in.</li>
   <li data-class="a">Message them and see if they would like to work out together.</li>
   <li data-id="chkin">Use this link to get back to this page.</li>
   <li data-id="stats">Use this link to track your progress.</li>
