@@ -17,7 +17,6 @@ class CheckinsController < ApplicationController
 
   def record
     r = Record.new
-    binding.pry
     r.weight = params[:weight]
     r.run = params[:run]
     r.pushups = params[:pushups]
