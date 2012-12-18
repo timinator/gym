@@ -8,13 +8,7 @@
 
   }
 
-  .msg_sender{
-    border: 1px gray dotted;
-
-  }
-
   .s_id{
-    border: 1px gray dotted;
     float: right;
     margin-bottom: 5px;
   }
@@ -29,10 +23,28 @@
   .reply{
     margin-bottom: 0px;
   }
+  .msg_sender{
+    padding: 10px;
+  }
 
 </style>
 
-
+<script type="text/javascript">
+  $(function(){
+    $('.msg_content').hide();
+    $('.message').toggle(show_msg, hide_msg);
+  })
+  function show_msg () {
+    $(this).find('.glyph').empty();
+    $(this).find('.glyph').append('w');
+    $(this).children(2).slideDown();
+  }
+  function hide_msg () {
+    $(this).find('.glyph').empty();
+    $(this).find('.glyph').append('x');
+    $(this).children('.msg_content').slideUp();
+  }
+</script>
 
 <h1 style='padding:20px;'>Messages</h1>
 
@@ -40,20 +52,24 @@
 
 <div id='inbox'>
   <% @user.receive.order('created_at DESC').each do |msg| %>
-    <div class='message' style='padding:10px; border: 1px gray dotted;margin: 10px;'>
+  <div class='wrapper' style='padding:10px; border: 1px black solid;margin: 10px;'>
+    <div class='message'>
       <div class='msg_sender'>
         <%= image_tag(User.find(msg.s_id).avatar.mini, :class => "avatar") %>
-        <span class "s_id"> <%= User.find(msg.s_id).name %> </span>
+        <span class='icon'><a class="glyph general" style='font-size: 20px;'> x</a></span><span class "s_id"> <%= User.find(msg.s_id).name %> </span>
       </div>
       <div class='msg_content'>
         <%= msg.content %>
       </div>
-      <%= form_tag '/message/reply', :class => 'reply' , :remote => true do %>
-        <%= hidden_field_tag 'id', msg.id %>
-        <%= button_tag 'mark as read', :class => 'tiny button', :value => 'read' %>
-        <%= button_tag 'reply', :class => 'tiny button' %>
-      <% end %>
     </div>
+
+    <%= form_tag '/message/reply', :class => 'reply' , :remote => true do %>
+      <%= hidden_field_tag 'id', msg.id %>
+      <%= button_tag 'mark as read', :class => 'tiny button', :value => 'read' %>
+      <%= button_tag 'reply', :class => 'tiny button' %>
+    <% end %>
+
     <div id='<%= msg.id %>'></div>
+  </div> <!-- wrapper -->
   <% end %>
 </div>
