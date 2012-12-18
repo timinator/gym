@@ -32,14 +32,15 @@
 
 </style>
 
+<div class = "match_content">
+  <% @users.each do |user| %>
 
-<% @users.each do |user| %>
-
-<div class='match'>
-  <div><%= link_to image_tag(user.avatar.thumb, :class => "avatar"), user %></div>
-  <div class = 'text'><%= link_to user.name, user %> | <%= user.workout_goal %></div>
+  <div class='match'>
+    <div><%= link_to image_tag(user.avatar.thumb, :class => "avatar"), user %></div>
+    <div class = 'text'><%= link_to user.name, user %> | <%= user.workout_goal %></div>
+  </div>
+  <% end %>
 </div>
-<% end %>
 
 
 

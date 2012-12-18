@@ -69,7 +69,7 @@
         <em><%= link_to 'Edit Profile', edit_user_path if @authenticated_user == @user %></em>
     </div>
 
-    <div class = "profile_photo"> <%= image_tag(@user.avatar) %></div>
+    <div class = "profile_photo"> <%= image_tag(@user.avatar.thumb) %></div>
 
     <div class = "clear"></div>
 
