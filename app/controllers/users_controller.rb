@@ -16,9 +16,17 @@ class UsersController < ApplicationController
 		else
 			render :new
 		end
-
-
 	end
+
+  def login
+    @user = User.find_by_email(params[:email])
+    if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect_to checkin_path
+    else
+      render :login
+    end
+  end
 
 	def show
 		user_id = params[:id]
@@ -40,6 +48,8 @@ class UsersController < ApplicationController
       render :edit
     end
 	end
+
 	def advance
 	end
+
 end
