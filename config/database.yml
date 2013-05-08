@@ -3,7 +3,8 @@ development:
   encoding: unicode
   database: gym_development
   pool: 5
-  username: postgres
+  host: localhost
+  username: tjegels
   password:
 
 production:

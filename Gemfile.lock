@@ -219,6 +219,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    workflow (1.0.0)
     xml-simple (1.1.2)
     zurb-foundation (3.2.3)
       compass (>= 0.12.2)
@@ -255,4 +256,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   twilio-ruby
   uglifier (>= 1.0.3)
+  workflow
   zurb-foundation

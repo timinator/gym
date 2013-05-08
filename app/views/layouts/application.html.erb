@@ -29,6 +29,7 @@
         <%= render 'shared/subnav' if session[:user_id] %>
         <%= yield :match %>
       </div>
+      <div id="flash_notice" style="display:none"></div>
       <div class='eight columns h', id="content">
         <%= yield %>
       </div>

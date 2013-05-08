@@ -17,6 +17,7 @@ gem 'jquery-ui-rails'
 gem 'zurb-foundation'
 gem 'kaminari'
 gem 'google-analytics-rails'
+gem 'workflow'
 
 group :development do
   gem 'annotate'

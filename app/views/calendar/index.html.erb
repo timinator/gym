@@ -8,7 +8,10 @@ $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
     $('#calendar').fullCalendar({
-          events: 'https://www.google.com/calendar/feeds/k6j4jr011punucv77ftguqfe54%40group.calendar.google.com/public/basic'
+          events: 'https://www.google.com/calendar/feeds/k6j4jr011punucv77ftguqfe54%40group.calendar.google.com/public/basic',
+          dayClick: function(date) {
+              console.log(moment(date).format("MMM Do YY"));
+          }
     });
 });
 </script>

@@ -15,6 +15,8 @@
 
   resources :companies
 
+  resources :workouts
+
   post '/login' => 'users#login'
   get '/logout' => 'session#destroy'
 

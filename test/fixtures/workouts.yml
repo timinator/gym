@@ -1,0 +1,9 @@
+one: 
+  start_date: <% Date.today %>
+  end_date: <% Date.today %>
+  workflow_state: "pending"
+
+two: 
+  start_date: <% Date.today %>
+  end_date: <% Date.today %>
+  workflow_state: "booked"
