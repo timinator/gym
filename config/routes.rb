@@ -17,6 +17,8 @@
 
   resources :workouts
 
+  post '/workouts/schedule' => 'workouts#schedule'
+
   post '/login' => 'users#login'
   get '/logout' => 'session#destroy'
 

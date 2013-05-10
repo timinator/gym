@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508203512) do
+ActiveRecord::Schema.define(:version => 20130510073801) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20130508203512) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.string   "workflow_state"
+    t.datetime "deleted_at"
   end
 
 end

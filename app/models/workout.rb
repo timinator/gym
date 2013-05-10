@@ -4,7 +4,10 @@ class Workout < ActiveRecord::Base
 
   validates_presence_of :start_date, :end_date
 
-  scope :booked, where(workflow_state: "booked")
+  attr_accessible :workflow_state, :start_date, :end_date
+
+  scope :booked, where(workflow_state: "booked").where("deleted_at IS NULL")
+  scope :current, where(workflow_state: ["pending", "booked"]).where("deleted_at IS NULL")
 
   workflow do
     state :pending do
@@ -18,21 +21,7 @@ class Workout < ActiveRecord::Base
     state :completed
   end
 
-  def exists?(start_date, end_date)
-    Workout.booked.where("start_date < ? AND end_date > ?", end_date, start_date).any?
+  def self.exists?(starting_date, ending_date)
+    Workout.booked.where("start_date < ? AND end_date > ?", ending_date, starting_date).any?
   end 
-
-  def book(user)
-    self.users << user
-    save!
-    mail_workout_users
-  end
-
-  private
-
-  def mail_workout_users
-    self.users.each do |user|
-      Notification.workout_booked(user, self.start_date)
-    end
-  end
 end

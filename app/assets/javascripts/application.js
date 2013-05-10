@@ -15,3 +15,5 @@
 //= require foundation
 //= require jquery.ui.all
 //= require moment.min
+//= require home
+//= require jquery.fancybox.pack

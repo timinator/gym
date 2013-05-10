@@ -7,6 +7,15 @@ development:
   username: tjegels
   password:
 
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: gym_test
+  pool: 5
+  host: localhost
+  username: tjegels
+  password:
+
 production:
   adapter: postgresql
   encoding: unicode

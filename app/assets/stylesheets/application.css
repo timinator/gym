@@ -7,4 +7,5 @@
  *= require 'layout.css.scss'
  *= require 'photos.css.scss'
  *= require 'checkin.css.scss'
+ *= require jquery.fancybox
  */

@@ -18,6 +18,18 @@ gem 'zurb-foundation'
 gem 'kaminari'
 gem 'google-analytics-rails'
 gem 'workflow'
+gem 'rabl'
+gem 'oj'
+gem 'whenever'
+
+group :test do
+  gem 'timecop'
+  gem 'faker'
+  gem 'database_cleaner', '>= 0.9.1'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '>= 1.1.beta1'
+  gem 'factory_girl'
+end
 
 group :development do
   gem 'annotate'
