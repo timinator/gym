@@ -2,13 +2,14 @@ class WorkoutsController < ApplicationController
   respond_to :html, :json
 
   def create
-    @workout = WorkoutInvitation.new(params[:workout]).send_invitation!
+    # need to fix authentication...
+    
+    # params[:creator_user] = current_user
+    # params[:invited_user] = User.find(params[:invited_user_id])
+    # @workout = WorkoutInvitation.new(params).send_invitation!
   end
 
   def new
-    puts "=========HERE============"
-    puts params[:hello].inspect
-    
     @users = User.order(:name).page params[:page]
     render :action => "new", :layout => "fancy"
   end

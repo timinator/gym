@@ -21,6 +21,7 @@
             editable: true,
             allDay: false,
             events: function(start, end, callback) {
+              console.log("in events method");
               events = [];
               $.get('workouts.json', function(data) {
                 events = data;
@@ -46,19 +47,21 @@
                 type : 'ajax',
                 afterLoad   : function() {
                     this.inner.prepend( '<h3>' + formatted_date + '</h3>' );
+                    console.log($(".fancybox-inner #end_date")); //can use this to set start and end time for existing events (do a check if exists)
                 }
               });
+              $('#calendar').fullCalendar('refetchEvents');
             },
-            eventRender: function( event, element, view ) { 
-              console.log("rendering event")
-            },
+            // eventRender: function( event, element, view ) { 
+            //   console.log("rendering event");
+            // },
             // events: 'https://www.google.com/calendar/feeds/k6j4jr011punucv77ftguqfe54%40group.calendar.google.com/public/basic',
             // dayClick: function(date) {
             //     //console.log(moment(date).format("MMM Do YY"));
             //     $('#calendar').fullCalendar('refetchEvents')
             // },
             eventClick: function(event) {
-              console.log(event);
+              console.log("in event click");
               if (event.url) {
                 return false;
                 //$(".fancybox").fancybox();

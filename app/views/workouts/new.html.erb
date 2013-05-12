@@ -12,6 +12,7 @@
     <div id="results">
       <%= render :partial => 'users', :collections => @users %>
     </div>
+    <input id="workout_invitee" type="hidden" name="invited_user_id" value=""/>
     <div style="clear:both; text-align: right"><%= submit_tag 'Send invite', :class => 'small button' %></div>
   <% end %>
 </div>
