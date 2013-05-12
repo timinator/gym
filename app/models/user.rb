@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :records
   has_and_belongs_to_many :workouts
   has_secure_password
+  before_create :set_name
 
   mount_uploader :avatar, PhotoUploader
 
@@ -33,6 +34,9 @@ class User < ActiveRecord::Base
   end
   def self.filter(query)
     self.where("workout_goal @@ :q", :q => query)
+  end
+  def set_name
+    name = "#{first_name} #{last_name}"
   end
   accepts_nested_attributes_for :photos
 end

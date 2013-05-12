@@ -22,6 +22,51 @@ header{
   width: 100%;
   margin-bottom: 0px;
 }
+.workout-user-clicked {
+  background-color: lightgray;
+  border-radius: 5px;
+}
+.dl-horizontal {
+  *zoom: 1;
+}
+
+.dl-horizontal:before,
+.dl-horizontal:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.dl-horizontal:after {
+  clear: both;
+}
+
+.dl-horizontal dt {
+  float: left;
+  width: 80px;
+  overflow: hidden;
+  clear: left;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dl-horizontal dd {
+  margin-left: 100px;
+  width: 80px;
+}
+
+.workout-user-rows {
+    /* Give the distance for floated items */
+    margin:2px 2px 2px 2px;
+    float:left;
+    /* Width and height for each item */
+    width:200px;
+    height:200px;
+    /* Text align and background color */
+    text-align:center;
+    /*background-color:#cdc;*/
+}
 
 #gym-bar li{
   float: right;

@@ -1,0 +1,11 @@
+<div id="user_list" style='width: 612px'>
+  <% @users.each do |user| %>
+    <div class="foo workout-user-rows">
+      <a href="javascript:void(0)">
+        <span><h3><%= user.first_name %></h3></span>
+        <div><%= image_tag(user.avatar.thumb, :class => "avatar")%></div>
+      </a>
+    </div>
+  <% end %>
+  </ul>
+</div>

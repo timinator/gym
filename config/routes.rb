@@ -15,9 +15,11 @@
 
   resources :companies
 
-  resources :workouts
-
-  post '/workouts/schedule' => 'workouts#schedule'
+  resources :workouts do
+    member do
+      put :confirm_invitation
+    end
+  end
 
   post '/login' => 'users#login'
   get '/logout' => 'session#destroy'

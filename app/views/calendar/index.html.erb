@@ -1,4 +1,73 @@
 <%= javascript_include_tag "fullcalendar/fullcalendar.js" %>
 <%= stylesheet_link_tag    "fullcalendar", :media => "all" %>
 <div id='calendar'></div>
+<div class="controls">
+  <input type="text" name="patientName" id="patientName" tyle="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Value 1&quot;,&quot;Value 2&quot;,&quot;Value 3&quot;]">
+  <input type="hidden" id="apptStartTime"/>
+  <input type="hidden" id="apptEndTime"/>
+  <input type="hidden" id="apptAllDay" />
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+      // page is now ready, initialize the calendar...
+
+      $('#calendar').fullCalendar({
+            header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: ''
+            },
+            selectable: true,
+            editable: true,
+            allDay: false,
+            events: function(start, end, callback) {
+              events = [];
+              $.get('workouts.json', function(data) {
+                events = data;
+              });
+
+              return callback(events);
+            },
+            eventDataTransform: function(model) {
+              console.log("in data transform");
+              return {
+                title: model.workout.workflow_state,
+                start: model.workout.start_date,
+                end: model.workout.end_date,
+                color: 'green',
+                allDay: false
+                // must add the 'url' attribute here, will be link to modal window
+              };
+            },
+            select: function(start, end, allDay) {
+              formatted_date = moment(start).format('dddd MMMM Do, YYYY');
+              $.fancybox({
+                href : 'workouts/new',
+                type : 'ajax',
+                afterLoad   : function() {
+                    this.inner.prepend( '<h3>' + formatted_date + '</h3>' );
+                }
+              });
+            },
+            eventRender: function( event, element, view ) { 
+              console.log("rendering event")
+            },
+            // events: 'https://www.google.com/calendar/feeds/k6j4jr011punucv77ftguqfe54%40group.calendar.google.com/public/basic',
+            // dayClick: function(date) {
+            //     //console.log(moment(date).format("MMM Do YY"));
+            //     $('#calendar').fullCalendar('refetchEvents')
+            // },
+            eventClick: function(event) {
+              console.log(event);
+              if (event.url) {
+                return false;
+                //$(".fancybox").fancybox();
+                // $.post("/path/to/controller/action.json", { line: line, report: report } ,function(response){
+                //   //process JSON response here
+                // });
+              };
+            }
+      });
+  });
+</script>
 

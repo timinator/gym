@@ -6,6 +6,10 @@ class WorkoutsController < ApplicationController
   end
 
   def new
+    puts "=========HERE============"
+    puts params[:hello].inspect
+    
+    @users = User.order(:name).page params[:page]
     render :action => "new", :layout => "fancy"
   end
 

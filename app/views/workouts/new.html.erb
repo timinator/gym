@@ -1,9 +1,17 @@
-<div id='new_workout' style='border-bottom: 1px black dashed; padding: 8px;'>
+<div id='new_workout'>
   <%= form_tag '/workouts', :remote => true do %>
-    <%= label_tag :start_time %>
-    <%= text_field_tag :start_time %>
-    <%= label_tag :end_time %>
-    <%= text_field_tag :end_time %>
-    <%= submit_tag("Save") %>
+    <div style="text-align: center">
+      <dl class="dl-horizontal">
+        <dt><%= label_tag "Start time:" %></dt>
+        <dd><%= text_field_tag :start_time, nil, :placeholder => 'E.g. 16:00' %></dd>
+        <dt><%= label_tag "End time:" %></dt>
+        <dd><%= text_field_tag :end_time, nil, :placeholder => 'E.g. 18:00' %></dd>
+      </dl>
+    </div>
+    <span>Please select a user that you like to workout with:</span>
+    <div id="results">
+      <%= render :partial => 'users', :collections => @users %>
+    </div>
+    <div style="clear:both; text-align: right"><%= submit_tag 'Send invite', :class => 'small button' %></div>
   <% end %>
 </div>
