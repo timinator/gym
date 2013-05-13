@@ -17,14 +17,24 @@
 #
 
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :checkins
   has_many :photos
   has_many :records
   has_and_belongs_to_many :workouts
-  has_secure_password
+  #has_secure_password
   before_create :set_name
 
   mount_uploader :avatar, PhotoUploader
+
+  scope :except, lambda {|id| where("id != ?", id) }
 
   has_many :sendd, foreign_key: 's_id', class_name: 'Message'
   has_many :receive, foreign_key: 'r_id', class_name: 'Message'

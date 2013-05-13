@@ -4,3 +4,8 @@ $(document).on("click", '.foo', function(event) {
   userid = $(this).attr('data-userid');
   $('#workout_invitee').val(userid);
 });
+
+$(document).on("change", '#start_time', function(event) {
+  date = $("#hidden_date").val();
+  $('#date').val(date);
+});

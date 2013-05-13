@@ -35,11 +35,12 @@
 
               existing_events = [];
               for (var i = 0; i < result.length; i++) {
+                var event_color = result[i].workout.workflow_state === "pending" ? 'blue' : 'green';
                 var event = {
                   title: result[i].workout.workflow_state,
                   start: result[i].workout.start_date,
                   end: result[i].workout.end_date,
-                  color: 'green'
+                  color: event_color
                 };
                 existing_events.push(event);
               };
@@ -63,6 +64,7 @@
                 type : 'ajax',
                 afterLoad   : function() {
                     this.inner.prepend( '<h3>' + formatted_date + '</h3>' );
+                    this.inner.prepend('<input id="hidden_date" type="hidden" value="' + moment(start).format('MMMM Do YYYY') + '"/>')
                     //console.log($(".fancybox-inner #end_date")); //can use this to set start and end time for existing events (do a check if exists)
                 }
               });
