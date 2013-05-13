@@ -62,10 +62,15 @@
               $.fancybox({
                 href : 'workouts/new',
                 type : 'ajax',
-                afterLoad   : function() {
-                    this.inner.prepend( '<h3>' + formatted_date + '</h3>' );
-                    this.inner.prepend('<input id="hidden_date" type="hidden" value="' + moment(start).format('MMMM Do YYYY') + '"/>')
-                    //console.log($(".fancybox-inner #end_date")); //can use this to set start and end time for existing events (do a check if exists)
+                afterLoad: function() {
+                    this.inner.prepend( '<h3>' + formatted_date + ' | Pending' + '</h3>' );
+                    this.inner.prepend('<input id="hidden_date" type="hidden" value="' + moment(start).format('MMMM Do YYYY') + '"/>');
+                    //console.log(this.content);
+                    console.log($(this.content).find("#end_date"));
+                    //$("#end_date", this.content).val("13:00");
+                },
+                afterShow: function() {
+                  $("#end_date", this.content).val("13:00");
                 }
               });
               $('#calendar').fullCalendar('refetchEvents');
@@ -89,6 +94,7 @@
                 },
                 afterLoad   : function() {
                     this.inner.prepend( '<h3>' + formatted_date + '</h3>' );
+                    this.inner.prepend('<input id="hidden_date" type="hidden" value="' + moment(start).format('MMMM Do YYYY') + '"/>');
                     $(this.element).find("#end_date").val("13:00")
                     //console.log($(".fancybox-inner #end_date"));
                 }
