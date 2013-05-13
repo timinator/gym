@@ -19,6 +19,10 @@
     member do
       put :confirm_invitation
     end
+
+    collection do
+      get :invitations
+    end
   end
 
   post '/login' => 'users#login'

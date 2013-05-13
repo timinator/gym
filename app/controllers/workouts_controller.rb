@@ -2,12 +2,13 @@ class WorkoutsController < ApplicationController
   respond_to :html, :json
 
   def create
-    workout_params = WorkoutParams.build!(params, current_user)
-    @workout = WorkoutInvitation.new(workout_params).send_invitation!
+    workout_params = WorkoutParams.build!(params, @authenticated_user)
+    workout = WorkoutInvitation.new(workout_params).send_invitation!
+    head :created
   end
 
   def new
-    @users = User.except(current_user.id)
+    @users = User.except(@authenticated_user.id)
     render :action => "new", :layout => "fancy"
   end
 

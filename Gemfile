@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '1.9.2'
 gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem 'localtunnel'
@@ -21,6 +22,8 @@ gem 'workflow'
 gem 'rabl'
 gem 'oj'
 gem 'whenever'
+gem 'heroku'
+gem 'thin'
 
 group :test do
   gem 'timecop'
