@@ -21,13 +21,30 @@
             editable: true,
             allDay: false,
             events: function(start, end, callback) {
-              console.log("in events method");
-              events = [];
-              $.get('workouts.json', function(data) {
-                events = data;
-              });
+              var events = [];
 
-              return callback(events);
+              var result = null;
+              $.ajax({
+                url: 'workouts.json',
+                type: 'get',
+                async: false,
+                success: function(data) {
+                    result = data;
+                } 
+               });
+
+              existing_events = [];
+              for (var i = 0; i < result.length; i++) {
+                var event = {
+                  title: result[i].workout.workflow_state,
+                  start: result[i].workout.start_date,
+                  end: result[i].workout.end_date,
+                  color: 'green'
+                };
+                existing_events.push(event);
+              };
+
+              return callback(existing_events);
             },
             eventDataTransform: function(model) {
               console.log("in data transform");
@@ -35,8 +52,7 @@
                 title: model.workout.workflow_state,
                 start: model.workout.start_date,
                 end: model.workout.end_date,
-                color: 'green',
-                allDay: false
+                color: 'green'
                 // must add the 'url' attribute here, will be link to modal window
               };
             },
@@ -47,7 +63,7 @@
                 type : 'ajax',
                 afterLoad   : function() {
                     this.inner.prepend( '<h3>' + formatted_date + '</h3>' );
-                    console.log($(".fancybox-inner #end_date")); //can use this to set start and end time for existing events (do a check if exists)
+                    //console.log($(".fancybox-inner #end_date")); //can use this to set start and end time for existing events (do a check if exists)
                 }
               });
               $('#calendar').fullCalendar('refetchEvents');
@@ -61,14 +77,20 @@
             //     $('#calendar').fullCalendar('refetchEvents')
             // },
             eventClick: function(event) {
-              console.log("in event click");
-              if (event.url) {
-                return false;
-                //$(".fancybox").fancybox();
-                // $.post("/path/to/controller/action.json", { line: line, report: report } ,function(response){
-                //   //process JSON response here
-                // });
-              };
+              //console.log(event);
+              formatted_date = moment(event.start).format('dddd MMMM Do, YYYY');
+              $.fancybox({
+                href : 'workouts/new',
+                type : 'ajax',
+                beforeLoad: function() {
+                    $(this.element).find("#end_date").val("13:00");
+                },
+                afterLoad   : function() {
+                    this.inner.prepend( '<h3>' + formatted_date + '</h3>' );
+                    $(this.element).find("#end_date").val("13:00")
+                    //console.log($(".fancybox-inner #end_date"));
+                }
+              });
             }
       });
   });
